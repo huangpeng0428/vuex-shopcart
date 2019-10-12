@@ -107,7 +107,11 @@ const mutations = {
     // 减少一件商品
     reducecartList(state, id) {
         let record = state.cartlist.find(e => e.id == id)
-        record.num > 1 ? record.num-- : state.cartlist = []
+        if (record.num > 1) {
+            record.num--
+        } else {
+            state.cartlist = state.cartlist.filter(e => e.id != id)
+        }
     }
 };
 
