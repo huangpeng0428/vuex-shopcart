@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 export default {
   name: 'Product',
   data() {
@@ -39,7 +39,7 @@ export default {
     };
   },
   computed: {
-      ...mapGetters('cart', {'shoplist': 'retrunShoplist'})
+      ...mapState('cart', ['shoplist'])
   },
   methods: {
       ...mapActions('cart', {'addCar': 'actionscartList'}, ['actionstotalNum'])
