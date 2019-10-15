@@ -26,6 +26,7 @@ const state = {
 };
 
 const getters = {
+
     retrunShoplist: state => state.shoplist,
 
     returnCartlist: state => {

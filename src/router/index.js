@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HelloWorld from '@/components/HelloWorld';
 import home from '@/components/page/home';
 import product from '@/components/page/product';
+import filters from '@/components/page/filter_demo/filters'
 
 Vue.use(Router);
 
@@ -10,8 +10,8 @@ export default new Router({
     routes: [
         {
             path: '/',
-            name: 'HelloWorld',
-            component: HelloWorld
+            name: 'home',
+            component: home
         },
         {
             path: '/home',
@@ -22,6 +22,11 @@ export default new Router({
             path: '/product',
             name: 'product',
             component: product
+        },
+        {
+            path: '/filters',
+            name: 'filters',
+            component: filters
         }
     ]
 });
