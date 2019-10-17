@@ -216,11 +216,83 @@ const a = {
         return name
     }
     //2.es6写法
+    greet: name => name
     greet(name) {
         retrun name
     }
-    greet: name => name
     
 }
 
+```
+**非递归实现tree**
+```
+let dataArr = [
+    { id: 1, name: "办公管理", pid: 0 },
+    { id: 2, name: "请假申请", pid: 1 },
+    { id: 3, name: "出差申请", pid: 1 },
+    { id: 4, name: "请假记录", pid: 2 },
+    { id: 5, name: "系统设置", pid: 0 },
+    { id: 6, name: "权限管理", pid: 5 },
+    { id: 7, name: "用户角色", pid: 6 },
+    { id: 8, name: "菜单设置", pid: 6 },
+]
+const toTree = data => {
+    let objData = {}    //存储顶级数据
+    data.forEach(e => {
+        objData[e.id] = e
+    })
+    let valArr = []
+    data.forEach(item => {
+        let parent = objData[item.pid]
+        if(parent) {
+            if(!Array.isArray(parent.child)) parent.child = []
+            parent.child.push(item)
+        } else {
+            valArr.push(item)
+        }
+    })
+    return valArr
+}
+toTree(dataArr)
+```
+**递归将树形结构转换成平级数组**
+```
+var dataArr = [
+    {id: 1, name: "办公管理", pid: 0 ,
+        children:[
+            { id: 2, name: "请假申请", pid: 1,
+                children:[
+                    { id: 4, name: "请假记录", pid: 2 },
+                ],
+            },
+            { id: 3, name: "出差申请", pid: 1},
+        ]
+    },
+    {id: 5, name: "系统设置", pid: 0 ,
+        children:[
+            { id: 6, name: "权限管理", pid: 5,
+                children:[
+                    { id: 7, name: "用户角色", pid: 6 },
+                    { id: 8, name: "菜单设置", pid: 6 },
+                ]
+            },
+        ]
+    },
+];
+
+const arr = []
+const changeData = data => {
+    data.forEach(e => {
+        arr.push({
+            id: e.id,
+            name: e.name,
+            pid: e.pid
+        }) 
+        if(e.children) {
+            changeData(e.children)
+        }
+    })
+}
+changeData(dataArr)
+console.log(arr)
 ```
