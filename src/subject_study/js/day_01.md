@@ -66,6 +66,11 @@ map函数返回的是一个数组，所以最后结果为[1, NaN, NaN]
 
 5. ES5和ES6的继承除了写法以外还有什么区别
 * class 声明会提升，但不会初始化赋值。Foo 进入暂时性死区，类似于 let、const 声明变量
+* class 声明内部会启用严格模式
+* class 所有的方法（包括静态方法和实例方法）都是不可枚举的
+* class 所有的方法（包括静态方法和实例方法）都没有原型对象prototype，所以也没有[construct]，不能使用new来调用
+* 必须使用new调用class
+* class内部无法重写类名
 ```
 const bar = new Bar(); // it's ok
 function Bar() {
