@@ -57,3 +57,9 @@ const inventoryObj = inventory.find(e => e.name === 'apples')  //{name: 'apples'
 [1, 2, 3].includes(2);     // true
 [1, 2, 3].includes(4);     // false
 ```
+5. 数组去重
+```
+let a = ['1', '2', '3', '4', '3', '2', '1']
+const s = new Set(a)
+console.log([...s])
+```

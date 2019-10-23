@@ -64,4 +64,21 @@ parseInt('3', 2) //基数为2（2进制）表示的数中，最大值小于3，�
 map函数返回的是一个数组，所以最后结果为[1, NaN, NaN]
 ```
 
+5. ES5和ES6的继承除了写法以外还有什么区别
+* class 声明会提升，但不会初始化赋值。Foo 进入暂时性死区，类似于 let、const 声明变量
+```
+const bar = new Bar(); // it's ok
+function Bar() {
+  this.bar = 42;
+}
+
+const foo = new Foo(); // ReferenceError: Foo is not defined
+class Foo {
+  constructor() {
+    this.foo = 42;
+  }
+}
+https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/20
+```
+
 
