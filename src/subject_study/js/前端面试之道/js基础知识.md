@@ -34,3 +34,8 @@ let fn2 = function fn1() {
 fn2()
 ```
 可以从上述代码中发现，不管我们给函数 bind 几次，fn 中的 this 永远由第一次 bind 决定，所以结果永远是 window。
+## 关于==
+```
+null == undefined  //true
+[] == ![]  //true
+```
