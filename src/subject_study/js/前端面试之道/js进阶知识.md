@@ -76,3 +76,38 @@ Function.prototype.myBind = function (context) {
 let objBind = obj.myFun.myBind(db, '111')
 objBind(123456)
 ```
+new的原理
+```
+function myNews(fun) {
+    return function F() {
+        // 创建一个新对象且将其隐式原型指向构造函数原型
+        let obj = {
+            __proto__: fun.prototype
+        }
+        // 执行构造函数
+        fun.call(obj, ...arguments)
+        // 返回该对象
+        return obj
+    }
+}
+//函数
+function Person(name, age) {
+    this.name = name
+    this.age = age
+    console.log(1)
+}
+Person.prototype.getName = function() {
+    console.log('i am ' + this.name)
+}
+let demoObj = myNews(Person)('huang', '25')
+console.log(demoObj)
+demoObj.getName()
+```
+为什么 0.1 + 0.2 != 0.3？如何解决这个问题？
+```
+因为 JS 采用 IEEE 754 双精度版本（64位），并且只要采用 IEEE 754 的语言都有该问题。
+我们都知道计算机是通过二进制来存储东西的，那么 0.1 在二进制中会表示为
+// (0011) 表示循环
+0.1 = 2^-4 * 1.10011(0011)
+解决方法：parseFloat((0.1 + 0.2).toFixed(10)) === 0.3 // true
+```
