@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import home from '@/components/page/home';
 import product from '@/components/page/product';
 import filters from '@/components/page/filter_demo/filters'
+import list from '@/components/vuePlugin/page/list'
 
 Vue.use(Router);
 
@@ -27,6 +28,11 @@ export default new Router({
             path: '/filters',
             name: 'filters',
             component: filters
+        },
+        {
+            path: '/list',
+            name: 'list',
+            component: list
         }
     ]
 });
