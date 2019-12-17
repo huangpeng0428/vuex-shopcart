@@ -1,0 +1,124 @@
+﻿超盟开发流程
+npm i cm-cli -g
+cm -v
+cd .. 	//退出当前目录
+cm init mini test (可选weex项目 mini项目)
+init <template> <name>  初始化工程目录, template 可选 [mini, weex], name 项目名称
+page <template> <name>  新建页面, template 可选 [mini, weex], name 页面名称
+小程序appid wx7cf726bd87f17612
+
+原始vue项目搭建环境流程
+npm install -g vue-cli
+vue init webpack my-project
+cd my-project
+npm install
+npm run dev 
+
+
+npm发布一个包
+npm login
+npm publish
+npm删除发布的包
+npm unpubilsh --force
+
+
+小程序appid
+wx7cf726bd87f17612
+
+
+hexo博客
+hexo S
+hexo D -g
+
+
+//git操作
+
+//git提交到本地仓库
+git commit -m '说明注释'。（作用可以看到自己每次的版本具体修改情况）
+
+//git创建本地分支
+git checkout -b 本地分支名 origin/远程分支名
+
+git reset --mixed HEAD~2 //版本回退
+
+删除本地分支 
+命令行 : $ git branch -d <BranchName>
+
+//删除node_modules
+rimraf node_modules
+
+
+git 常用
+git fetch 				更新远程	
+git rebase				合并远程
+git merge --no-ff origin/master		合并主分支
+git stash		git stash用于将当前工作区的修改暂存起来，就像堆栈一样，可以随时将某一次缓存的修改再重新应用到当前工作区
+git stash pop
+git status
+git push origin HEAD:refs/for/develop	git推送到远程仓库
+git pull --rebase	拉取且以rebase的方式合并
+
+git checkout -b 本地分支名 origin/远程分支名  从远程仓库拉取一条本地不存在的分支时：
+
+git 操作步骤
+初始化一个Git仓库：git init
+添加文件到Git仓库：
+1：git add 文件，可以添加多次；
+2：git commit -m '说明注释'。（作用可以看到自己每次的版本具体修改情况）
+
+关联一个远程库
+1：在github上建好库
+2：在本地的仓库下运行命令 git remote add origin git@github.com:账号名/文件名
+3：(第一次）git push -u origin master (之后) git push origin master
+
+克隆远程库
+1：首先要先知道仓库地址 使用git clone https://github.com/huangpeng0428/gitskills.git 来克隆整个项目
+Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快
+2：git add 文件，可以添加多次；
+3：git commit -m '说明注释'。（作用可以看到自己每次的版本具体修改情况）
+4：git push -u origin master
+
+
+git合并分支
+1.git branch 
+2.git merge '要合并的分支'
+3.git commit -m ‘说明注释’
+
+
+//商店测试账号
+17607672525  872252642lbw
+
+//缓存
+https://i3.mzres.com/resources/appStore/red-envelope/
+https://i3.mzres.com/resources/appStore/config.txt
+
+//安装指定源
+cnpm install @flyme/appstore-client --registry=http://appff.meizu.com:8888
+
+管理后台快照版本
+SNAPSHOT
+
+
+商店自动生成项目
+http://developer.manage.meizu.com/views/#/generator/details_brand_manage  #factory
+dsp自动生成项目
+http://admanage.meizu.com/admin/index.html#/generator/account_verify      #factory
+
+release.js   添加页面
+npm run release
+
+游戏
+npm run dev-phaser activity-football-2018
+npm run dev
+
+
+nvm install 8.0.0
+nvm use 8.0.0
+
+
+mdsp项目启动：关掉fiddle host切换为dsp 启动nginx
+
+
+ssp项目打包：ssp-manage先fetch 然后reset远程分支到本地 然后再ad-static文件重新打包，然后提交ssp-manage到远程
+
+com.tencent.tmgp.sskgame
