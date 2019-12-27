@@ -7,6 +7,8 @@
 </template>
 <script>
   let vm = {};
+
+  // 过滤器学习
   export default {
     filters: {
       filtersTextChange: function(dataStr) {

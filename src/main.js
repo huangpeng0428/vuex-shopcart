@@ -4,7 +4,7 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import store from './store';
-import MessageBox from './components/vuePlugin/js/common-mask'
+import MessageBox from './components/page/msg_mask/js/common-mask'
 
 Vue.config.productionTip = false;
 Vue.use(MessageBox);

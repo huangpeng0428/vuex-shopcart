@@ -38,6 +38,8 @@
 </template>
 
 <script>
+
+// 长列表优化学习
 export default {
   props: {
     title: {

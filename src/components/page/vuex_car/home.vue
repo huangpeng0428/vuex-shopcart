@@ -14,6 +14,8 @@
 import product from './product'; // 商品的列表组件
 import cart from './cart'; // 已选商品的组件
 import info from './info'; // 总数量价格的组件
+
+// vuex学习
 export default {
   name: 'App',
   components: {
