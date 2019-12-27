@@ -39,7 +39,7 @@
 
 <script>
 
-// 长列表优化学习
+// 公共弹窗学习
 export default {
   props: {
     title: {
