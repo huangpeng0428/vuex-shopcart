@@ -94,7 +94,7 @@ export default {
        })
     },
     cancel() {
-
+      console.log(1)
     },
     confirm() {
       this.isShowMessageBox = false
