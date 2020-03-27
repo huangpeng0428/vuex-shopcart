@@ -47,3 +47,7 @@ Object.setPrototypeOf()可以在创建对象以后去改变对象的prototype
 Object.setPrototypeOf(obj, proto); //obj.prototype = proto
 
 ```
+**proxy**
+```
+https://es6.ruanyifeng.com/#docs/proxy
+```

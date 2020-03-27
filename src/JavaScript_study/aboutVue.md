@@ -2,6 +2,7 @@
 **Object.defineProperty 不足**
 ```
 https://www.cnblogs.com/xiaoyuchen/p/10547696.html
+https://juejin.im/post/5e778c71518825491d3240fd
 //数组
 1. Object.defineProperty其实可以监听到数组中已有元素的变化，但是vue2.x并没有实现将已存在的数组元素做监听，而是去监听造成数组变化的方法，触发这个方法的同时去调用挂载好的响应页面方法，达到页面响应式的效果
 2. 改变超过数组长度的下标的值时，值变化是不能监听到的。这个其实很好理解，不存在的属性当然是不能监听到，因为绑定监听操作在之前已经执行过了，后添加的元素属性在绑定当时都还没有存在，当然没有办法提前去监听它了，但是也请注意并非所有的数组方法都重新写了一遍，只有push，pop，shift，unshift，splice, sort，reverse这七个。至于为什么不用Object.defineProperty去监听数组中已存在的元素变化(尤大：性能问题)
