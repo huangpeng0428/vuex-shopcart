@@ -51,3 +51,20 @@ Object.setPrototypeOf(obj, proto); //obj.prototype = proto
 ```
 https://es6.ruanyifeng.com/#docs/proxy
 ```
+
+**rest参数**
+```
+ES5中的arguments
+function func() {
+  console.log(arguments)
+  //返回类数组 arguments对象
+  通过Array.prototype.slice.call(arguments)转成真正数组
+}
+ES6中的rest参数剩余运算符
+let func = (...rest) => {
+  console.log(rest)
+  //[1,2,3]
+}
+
+func(1,2,3)
+```
