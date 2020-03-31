@@ -3,8 +3,8 @@
 var obj = {
     name: '小张',
     objAge: this.age,
-    myFun: function(val) {
-        console.log(val)
+    myFun: function(val,val2) {
+        console.log(val,val2)
         console.log(this.name + '年龄' + this.age)
     }
 }
@@ -52,7 +52,7 @@ Function.prototype.myApply = function(context) {
     delete context.fn
     return result
 }
-obj.myFun.myApply(db, ['111'])
+obj.myFun.myApply(db, ['111', '222'])
 ```
 ```
 bind的实现
