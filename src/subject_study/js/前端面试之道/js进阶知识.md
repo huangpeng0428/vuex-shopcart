@@ -76,6 +76,34 @@ Function.prototype.myBind = function (context) {
 let objBind = obj.myFun.myBind(db, '111')
 objBind(123456)
 ```
+手写防抖,节流函数
+```
+function debounce(func, wait) {
+    let timeout = null
+    return function() {
+        if(timeout) clearTimeout(timeout)
+        timeout = setTimeout(func, wait)
+    }
+}
+
+function handle(){
+    console.log(Math.random());
+}
+
+window.addEventListener("resize",debounce(handle,1000));
+
+function throttle(func, wait) {
+    let timeout = null
+    return function() {
+        if(!timeout) {
+            timeout = setTimeout(() => {
+                func()
+                timeout = null;
+            }, wait)
+        }
+    }
+}
+```
 new的原理
 ```
 function myNews(fun) {
