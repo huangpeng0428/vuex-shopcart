@@ -1,4 +1,4 @@
-##浏览器中的 Event Loop
+## 浏览器中的 Event Loop
 ```
 console.log('script start')
 
@@ -30,6 +30,9 @@ console.log('script end')
 // script start => async2 end => Promise => script end => promise1 => promise2 => async1 end => setTimeout
 
 注意：新的浏览器中不是如上打印的，因为 await 变快了，具体内容可以往下看
+
+//新的浏览器因为await变快了，打印结果如下
+// script start => async2 end => promise => script end => async1 end => promise1 => promise2 => setTimeout
 
 首先先来解释下上述代码的 async 和 await 的执行顺序。当我们调用 async1 函数时，会马上输出 async2 end，并且函数返回一个 Promise，接下来在遇到 await的时候会就让出线程开始执行 async1 外的代码，所以我们完全可以把 await 看成是让出线程的标志。
 
