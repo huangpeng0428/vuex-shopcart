@@ -1,3 +1,8 @@
+<!--
+ * @Date: 2020-03-25 15:12:04
+ * @LastEditors: PoloHuang
+ * @LastEditTime: 2020-04-15 14:26:18
+ -->
 ## vue2.x数据监听 Object.defineProperty、vue3.x数据监听 Proxy
 **Object.defineProperty 不足**
 ```
@@ -47,4 +52,8 @@ const newObj = new Proxy(obj, {
 input.addEventListener('keyup', function(e) {
   newObj.text = e.target.value;
 });
+```
+**vuex实现原理**
+```
+https://www.jianshu.com/p/d95a7b8afa06
 ```
