@@ -1,4 +1,4 @@
-##手写call、apply、bind函数
+## 手写call、apply、bind函数
 ```
 var obj = {
     name: '小张',
@@ -76,7 +76,7 @@ Function.prototype.myBind = function (context) {
 let objBind = obj.myFun.myBind(db, '111')
 objBind(123456)
 ```
-手写防抖,节流函数
+## 手写防抖,节流函数
 ```
 function debounce(func, wait) {
     let timeout = null
@@ -131,11 +131,17 @@ let demoObj = myNews(Person)('huang', '25')
 console.log(demoObj)
 demoObj.getName()
 ```
-为什么 0.1 + 0.2 != 0.3？如何解决这个问题？
+## 闭包
 ```
-因为 JS 采用 IEEE 754 双精度版本（64位），并且只要采用 IEEE 754 的语言都有该问题。
-我们都知道计算机是通过二进制来存储东西的，那么 0.1 在二进制中会表示为
-// (0011) 表示循环
-0.1 = 2^-4 * 1.10011(0011)
-解决方法：parseFloat((0.1 + 0.2).toFixed(10)) === 0.3 // true
+function outer() {
+    var a = '1'
+    var inner = function() {
+        console.log(a)
+    }
+    return inner
+}
+var inner = outer()
+inner()
+当程序执行完var inner = outer()，其实outer的执行环境并没有被销毁，因为他里面的变量a仍然被被inner的函数作用域链所引用，当程序执行完inner(), 这时候，inner和outer的执行环境才会被销毁调；《JavaScript高级编程》书中建议：由于闭包会携带包含它的函数的作用域，因为会比其他函数占用更多内容，过度使用闭包，会导致内存占用过多。
 ```
+
