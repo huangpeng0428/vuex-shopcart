@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-03-25 15:12:04
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-04-15 14:26:18
+ * @LastEditTime: 2020-05-11 11:32:08
  -->
 ## vue2.x数据监听 Object.defineProperty、vue3.x数据监听 Proxy
 **Object.defineProperty 不足**
@@ -56,4 +56,9 @@ input.addEventListener('keyup', function(e) {
 **vuex实现原理**
 ```
 https://www.jianshu.com/p/d95a7b8afa06
+```
+**vue两种模式**
+```
+vue有两种形式的代码 compiler（模板）模式和runtime模式（运行时），vue模块的package.json的main字段默认为runtime模式， 指向了"dist/vue.runtime.common.js"位置。
+csdn: https://blog.csdn.net/wxl1555/article/details/83187647?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1.nonecase
 ```
