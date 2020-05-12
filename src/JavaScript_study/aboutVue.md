@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-03-25 15:12:04
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-05-11 11:32:08
+ * @LastEditTime: 2020-05-11 15:34:54
  -->
 ## vue2.x数据监听 Object.defineProperty、vue3.x数据监听 Proxy
 **Object.defineProperty 不足**
@@ -61,4 +61,18 @@ https://www.jianshu.com/p/d95a7b8afa06
 ```
 vue有两种形式的代码 compiler（模板）模式和runtime模式（运行时），vue模块的package.json的main字段默认为runtime模式， 指向了"dist/vue.runtime.common.js"位置。
 csdn: https://blog.csdn.net/wxl1555/article/details/83187647?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1.nonecase
+```
+**vue全局自动化注册组件**
+```
+installComs(require['context']('./', false, /\.vue$/), 'Edit')
+export const installComs = (context: any, type: string): any => {
+  console.log(context.keys())
+    return context.keys().reduce((acc: any, cur: any) => {
+      const name: string = type + cur.match(/^.\/(.*).vue$/)[1]
+      acc[name] = context(cur).default
+      return acc
+    }, {})
+}
+
+解释： https://www.jianshu.com/p/bf5b1747bcfe
 ```
