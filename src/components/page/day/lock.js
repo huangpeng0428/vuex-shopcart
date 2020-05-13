@@ -1,7 +1,8 @@
 /*
  * @Date: 2020-05-12 19:40:22
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-05-12 19:51:35
+ * @LastEditTime: 2020-05-13 14:55:01
+ * desc: promise 锁
  */
 
 const mockRequest = (name, time = Math.random() * 1000) =>
