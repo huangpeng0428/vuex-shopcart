@@ -5,6 +5,7 @@ import product from '@/components/page/vuex_car/product';
 import filters from '@/components/page/filter_demo/filters'
 import MsgContent from '@/components/page/msg_mask/page/MsgContent'
 import longList from '@/components/page/long_list/list'
+import sliderList from '@/components/page/sliderList/index'
 
 Vue.use(Router);
 
@@ -39,6 +40,11 @@ export default new Router({
             path: '/longList',
             name: 'longList',
             component: longList
+        },
+        {
+            path: '/sliderList',
+            name: 'sliderList',
+            component: sliderList
         }
     ]
 });
