@@ -33,6 +33,10 @@ const isType = (target, type) => {
 }
     console.log(isType([],'Array'))    //ture
 ```
+**原型链之间的关系**
+```
+https://www.jianshu.com/p/dee9f8b14771
+```
 **理解js继承的6种方式**
 ```
 原文：https://www.cnblogs.com/Grace-zyy/p/8206002.html
