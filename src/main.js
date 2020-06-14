@@ -5,9 +5,11 @@ import App from './App';
 import router from './router';
 import store from './store';
 import MessageBox from './components/page/msg_mask/js/common-mask'
+import http from './lib/http'
 
 Vue.config.productionTip = false;
 Vue.use(MessageBox);
+Vue.prototype.$http = http
 
 /* eslint-disable no-new */
 new Vue({

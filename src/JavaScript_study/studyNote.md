@@ -269,10 +269,8 @@ const deepClone = (obj, cache = []) => {
 
   return copy;
 };
-let a = {
-  d: 2,
-  b: {c: 1}
-}
+var a = {b:1}
+a.c = a
 console.log(deepClone(a));
 
 

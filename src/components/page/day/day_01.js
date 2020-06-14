@@ -34,8 +34,11 @@ const deepCopy = (obj, cache = []) => {
 
   return copy;
 };
-let a = {
-  d: 2,
-  b: {c: 1}
-}
+
+// let a = {
+//   d: 2,
+//   b: {c: 1}
+// }
+let a = {b: 1}
+a.c = a
 console.log(deepCopy(a));

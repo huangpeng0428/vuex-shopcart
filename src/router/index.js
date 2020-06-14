@@ -1,11 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import home from '@/components/page/vuex_car/home';
-import product from '@/components/page/vuex_car/product';
-import filters from '@/components/page/filter_demo/filters'
-import MsgContent from '@/components/page/msg_mask/page/MsgContent'
-import longList from '@/components/page/long_list/list'
-import sliderList from '@/components/page/sliderList/index'
+import home from '@/components/page/vuex_car/home';                     // vuex购物车demo
+import product from '@/components/page/vuex_car/product';               // vuex购物车demo
+import filters from '@/components/page/filter_demo/filters'             // vue 过滤
+import MsgContent from '@/components/page/msg_mask/page/MsgContent'     // vue弹窗插件
+import longList from '@/components/page/long_list/list'         // 长列表优化
+import sliderList from '@/components/page/sliderList/index'     // 轮播
+import mockPage from '@/components/page/mock/mockFrontend'      // mock模拟数据
 
 Vue.use(Router);
 
@@ -45,6 +46,11 @@ export default new Router({
             path: '/sliderList',
             name: 'sliderList',
             component: sliderList
+        },
+        {
+            path: '/mockPage',
+            name: 'mockPage',
+            component: mockPage
         }
     ]
 });
