@@ -11,7 +11,20 @@ export default {
         }
     },
     mounted() {
-        console.log(1)
+        this.getInfo()
+        this.doDrow()
+    },
+    methods: {
+      getInfo() {
+        this.$http.get('/campaign/doMission').then(e => {
+          console.log(e)
+        })
+      },
+      doDrow() {
+        this.$http.get('/campaign/draw').then(e => {
+          console.log(e)
+        })
+      }
     }
 }
 </script>

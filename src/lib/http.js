@@ -4,7 +4,7 @@ import Axios from 'axios';
 import Qs from 'qs'
 
 const axios = Axios.create({
-  baseURL: 'http://192.168.1.103', // 设置请求域名
+  baseURL: 'http://192.168.1.103:3000', // 设置请求域名
   timeout: 200000,
   headers: {
     'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
