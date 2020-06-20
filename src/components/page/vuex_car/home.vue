@@ -18,10 +18,14 @@ import info from './info'; // 总数量价格的组件
 // vuex学习
 export default {
   name: 'App',
+  option: 'test',
   components: {
     product,
     cart,
     info
+  },
+  created() {
+    console.log(this.$options.option);  // test
   }
 
 }

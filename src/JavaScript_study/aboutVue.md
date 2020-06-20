@@ -76,3 +76,28 @@ export const installComs = (context: any, type: string): any => {
 
 解释： https://www.jianshu.com/p/bf5b1747bcfe
 ```
+**vue一些比较不常见的属性**
+```
+$props：当前组件接收到的 props 对象。Vue 实例代理了对其 props 对象属性的访问。
+$attrs：包含了父作用域中不作为 prop 被识别 (且获取) 的特性绑定 (class 和 style 除外)。
+$listeners：包含了父作用域中的 (不含 .native 修饰器的) v-on 事件监听器。它可以通过 v-on="$listeners" 传入内部组件——在创建更高层次的组件时非常有用。
+https://www.jianshu.com/p/ce8ca875c337
+
+$optiation
+//在data外面定义的属性和方法通过$options可以获取和调用
+export default {
+  name: 'App',
+  option: 'test',
+  components: {
+    product,
+    cart,
+    info
+  },
+  created() {
+    console.log(this.$options.option);  // test
+  }
+}
+
+provide 和 inject: 这对选项是一起使用的。以允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深，并在起上下游关系成立的时间里始终生效。
+https://blog.csdn.net/lfcss/article/details/88786332
+```
