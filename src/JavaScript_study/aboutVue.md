@@ -101,3 +101,8 @@ export default {
 provide 和 inject: 这对选项是一起使用的。以允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深，并在起上下游关系成立的时间里始终生效。
 https://blog.csdn.net/lfcss/article/details/88786332
 ```
+**vue computed**
+```
+computed 是在beforeCreated 和 created 之间执行的
+https://blog.csdn.net/u013970232/article/details/90317829
+```
