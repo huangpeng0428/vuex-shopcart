@@ -15,3 +15,11 @@ heigth = border + padding + content heigth
 //应用场景
 https://blog.csdn.net/luxu1990/article/details/83743787
 ```
+**flex**
+```
+3个参数：
+    flex: flex-grow flex-shrink flex-basis (默认值： 0 1 auto)
+    flex-grow: 用于设置或检索弹性盒子的扩展比率。(flex: 1, 即每个盒子比率相同)
+    flex-shrink： 指定了 flex 元素的收缩规则。flex 元素仅在默认宽度之和大于容器的时候才会发生收缩，其收缩的大小是依据 flex-shrink的值
+    flex-basis： 用于设置或检索弹性盒伸缩基准值。
+```
