@@ -2,6 +2,11 @@
 
 **自己实现一个new**
 ```
+function Person (name, age) {
+    this.name = name ;
+    this.age = age
+}
+1.
 function myNew (fun, ...arg) {
     // 创建一个新对象且将其隐式原型指向构造函数原型
     let obj = {
@@ -14,10 +19,13 @@ function myNew (fun, ...arg) {
     return obj
 }
 
-function Person (name, age) {
-    this.name = name ;
-    this.age = age
+2.
+function myNew (fun, ...arg) {
+    const obj = Object.create(fn.prototype) //创建一个新对象且将其隐式原型指向构造函数原型
+	const ret = fn.apply(obj, arg)
+	return ret instanceof Object ? ret : obj
 }
+
 
 let _person = myNew(Person, 'huang', '21')
 console.log(_person)
