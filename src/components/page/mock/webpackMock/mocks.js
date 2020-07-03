@@ -52,7 +52,7 @@ chain.add('/console/mdsp/dynamic/list', function(req, params) {
     message: '',
     redirect: '',
     value: {
-      total: 14,
+      total: 15,
       data: Array(Mock.Random.integer(10, 15)).fill(0).map((v, i) => {
         return {
           id: 1000 + i,

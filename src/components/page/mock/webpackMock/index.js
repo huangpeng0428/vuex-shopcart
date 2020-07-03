@@ -2,7 +2,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const chokidar = require('chokidar')
 
-const mockDir = path.resolve(process.cwd(), 'src/mock/')
+const mockDir = path.resolve(process.cwd(), 'src/components/page/mock/webpackMock/');
 
 console.log(path.resolve(process.cwd()))
 console.log(mockDir)
