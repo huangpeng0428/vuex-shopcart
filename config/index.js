@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-05-22 12:25:09
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-04-15 11:05:35
+ * @LastEditTime: 2020-07-03 16:41:14
  */
 'use strict'
 // Template version: 1.3.1
@@ -18,7 +18,7 @@ module.exports = {
     proxyTable: {},
 
     // Various Dev Server settings
-    host: '192.168.1.103', // can be overwritten by process.env.HOST
+    host: '127.0.0.1', // can be overwritten by process.env.HOST
     port: 8088, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,

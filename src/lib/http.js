@@ -1,10 +1,15 @@
+/*
+ * @Date: 2020-06-29 14:50:19
+ * @LastEditors: PoloHuang
+ * @LastEditTime: 2020-07-03 16:52:31
+ */
 import Axios from 'axios';
 
 // import Vue from 'vue';
 import Qs from 'qs'
 
 const axios = Axios.create({
-  baseURL: 'http://192.168.1.103:3000', // 设置请求域名
+  baseURL: 'http://127.0.0.1:8088', // 设置请求域名
   timeout: 200000,
   headers: {
     'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -25,6 +30,25 @@ axios.interceptors.request.use(
 
     }
 
+    if (config.method === 'get') {
+      let params = config.params || {};
+      if (params.nocache) {
+        params.t = new Date().getTime();
+        config.params = params;
+        delete params.nocache;
+      }
+    } else if (config.data) {
+      config.mock = config.data.mock;
+      config.data['timestamp'] = new Date().getTime();
+      config.data = Qs.stringify(config.data);
+    }
+    if (
+      process.env.NODE_ENV === 'development' &&
+      typeof config.mock === 'boolean' &&
+      config.mock
+    ) {
+      config.url = '/mock' + config.url;
+    }
     return config;
   },
   error => {

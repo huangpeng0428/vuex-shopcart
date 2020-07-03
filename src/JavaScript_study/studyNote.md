@@ -20,7 +20,7 @@ function myNew (fun, ...arg) {
 }
 
 2.
-function myNew (fun, ...arg) {
+function myNew (fn, ...arg) {
     const obj = Object.create(fn.prototype) //创建一个新对象且将其隐式原型指向构造函数原型
 	const ret = fn.apply(obj, arg)
 	return ret instanceof Object ? ret : obj
