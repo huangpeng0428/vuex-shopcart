@@ -38,3 +38,8 @@ path.resolve([from...],to)
 作用：把一个路径或路径片段的序列解析为一个绝对路径。相当于执行cd操作。
 /被解析为根目录
 ```
+**process.cwd()**
+```
+process.cwd()是指当前node命令执行的文件夹目录
+__dirname是指被执行js文件所在的文件夹目录
+```
