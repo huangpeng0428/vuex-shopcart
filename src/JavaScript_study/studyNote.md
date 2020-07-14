@@ -140,7 +140,7 @@ class EventEmitter {
     //触发事件
     emit (type) {
         let handle = this.events.get(type)
-        handle.apply(this,[...arguments]).slice(1)
+        handle.apply(this, [...arguments].slice(1))
     }
 }
 // 测试

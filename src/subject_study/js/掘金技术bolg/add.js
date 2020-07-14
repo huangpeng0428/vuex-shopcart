@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 11:03:11
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-07-14 11:15:04
+ * @LastEditTime: 2020-07-14 15:56:15
  */ 
 // 请实现一个 add 函数  函数柯理化
 // add(1); 	// 1
@@ -26,4 +26,4 @@ function add(...nums) {
   };
   return ret;
 }
-console.log(add(1)(2, 3));
+console.log(add(1)(2, 3))
