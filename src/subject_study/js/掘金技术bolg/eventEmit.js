@@ -1,9 +1,7 @@
-const { eventNames } = require("node-notifier");
-
 /*
  * @Date: 2020-07-14 13:38:54
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-07-14 17:51:44
+ * @LastEditTime: 2020-07-16 11:03:27
  */ 
 class EventEmitter {
   constructor() {

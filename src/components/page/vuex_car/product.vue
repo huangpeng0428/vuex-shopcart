@@ -1,3 +1,8 @@
+<!--
+ * @Date: 2019-10-11 10:09:31
+ * @LastEditors: PoloHuang
+ * @LastEditTime: 2020-07-16 11:13:07
+-->
 <template>
   <div class="product">
 
@@ -36,7 +41,7 @@ export default {
   name: 'Product',
   data() {
     return {
-    };
+    }
   },
   computed: {
       ...mapState('cart', ['shoplist'])
@@ -44,7 +49,7 @@ export default {
   methods: {
       ...mapActions('cart', {'addCar': 'actionscartList'}, ['actionstotalNum'])
   }
-};
+}
 </script>
 
 <style scoped>
