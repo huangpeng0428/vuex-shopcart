@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-07-15 10:17:13
+ * @LastEditTime: 2020-07-21 11:32:41
  */ 
 // class EventEmitter {
 //   constructor() {
@@ -91,3 +91,19 @@
 // event.emit("adding", 1, 2, 3, 4);
 // event.emit("adding", 1, 2, 3, 4);
 // event.emit("adding", 1, 2, 3, 4);
+
+
+function Person (name, age) {
+    this.name = name
+    this.age = age
+}
+
+const myNew = function (fn, ...args) {
+    const res = Object.create(fn.prototype)
+    const ret = fn.apply(res, args)
+    return ret instanceof Object ? ret : res
+}
+
+let obj = myNew(Person, 'polo', 25)
+
+
