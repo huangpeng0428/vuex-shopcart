@@ -43,6 +43,10 @@ const isType = (target, type) => {
 ```
 **原型链之间的关系**
 ```
+Person.prototype.constructor == Person;
+person1.__proto__ == Person.prototype;
+person1.constructor == Person;
+
 https://www.jianshu.com/p/dee9f8b14771
 ```
 **理解js继承的6种方式**
