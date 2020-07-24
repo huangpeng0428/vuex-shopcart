@@ -1,0 +1,67 @@
+<!--
+ * @Date: 2020-07-24 15:18:42
+ * @LastEditors: PoloHuang
+ * @LastEditTime: 2020-07-24 16:21:48
+--> 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title></title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    div img {
+        width: 100%;
+    }
+</style>
+
+<body>
+    <div>
+        <div><img src="img/1.jpg" data="img/1.jpg" alt=""></div>
+        <div><img src="img/1.jpg" data="img/2.jpg" alt=""></div>
+        <div><img src="img/1.jpg" data="img/3.jpg" alt=""></div>
+        <div><img src="img/1.jpg" data="img/4.jpg" alt=""></div>
+        <div><img src="img/1.jpg" data="img/5.jpg" alt=""></div>
+        <div><img src="img/1.jpg" data="img/6.jpg" alt=""></div>
+        <div><img src="img/1.jpg" data="img/7.jpg" alt=""></div>
+        <div><img src="img/1.jpg" data="img/8.jpg" alt=""></div>
+        <div><img src="img/1.jpg" data="img/9.jpg" alt=""></div>
+    </div>
+    <script>
+        let imgs = document.querySelectorAll('img')
+
+// 可视区高度
+        let clientHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+        console.log(clientHeight, '窗口高度')
+        function lazyLoad() {
+
+    // 滚动卷去的高度
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+            console.log(scrollTop, '滚动条距离顶部距离')
+
+    // console.log(imgs[0].offsetTop,'第一张图片距离顶部的距离')
+            console.log(imgs[2].offsetTop, '第3张图片距离顶部的距离')
+            for (let i = 0; i < imgs.length; i++) {
+
+        // 图片在可视区冒出的高度
+                let x = clientHeight + scrollTop - imgs[i].offsetTop		// 窗口加滚动条滚动的距离减去图片距离顶部的距离大于0说明图片在窗口内
+                // 图片在可视区内
+                if (x > 0 && x < clientHeight + imgs[i].height) {
+                    imgs[i].src = imgs[i].getAttribute('data')
+                }
+            }
+        }
+        addEventListener('scroll', lazyLoad) // or setInterval(lazyLoad, 1000)
+
+    </script>
+</body>
+
+</html>

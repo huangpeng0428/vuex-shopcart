@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-07-21 11:32:41
+ * @LastEditTime: 2020-07-22 16:36:53
  */ 
 // class EventEmitter {
 //   constructor() {
@@ -93,17 +93,34 @@
 // event.emit("adding", 1, 2, 3, 4);
 
 
-function Person (name, age) {
-    this.name = name
-    this.age = age
-}
+// function Person (name, age) {
+//     this.name = name
+//     this.age = age
+// }
 
-const myNew = function (fn, ...args) {
-    const res = Object.create(fn.prototype)
-    const ret = fn.apply(res, args)
-    return ret instanceof Object ? ret : res
-}
+// const myNew = function (fn, ...args) {
+//     const res = Object.create(fn.prototype)
+//     const ret = fn.apply(res, args)
+//     return ret instanceof Object ? ret : res
+// }
 
-let obj = myNew(Person, 'polo', 25)
+// let obj = myNew(Person, 'polo', 25)
+
+
+var a = [1, [2, [3]]];
+const flatten = arr => Array.isArray(arr) ? 
+    arr.reduce((c, item) => [...c, ...flatten(item)], []) : [arr]
+    console.log(flatten(a));
+
+// let b = [1, [2, [3]]].flat(Infinity);
+// console.log(b)
+
+// const flattenDeep = arr =>
+//   Array.isArray(arr)
+//     ? arr.reduce((a, b) => [...a, ...flattenDeep(b)], [])
+//     : [arr];
+
+// console.log(flattenDeep([1, [[2], [3, [4]], 5]]))
+
 
 
