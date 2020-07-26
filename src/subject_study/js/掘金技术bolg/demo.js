@@ -2,7 +2,7 @@
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
  * @LastEditTime: 2020-07-22 16:36:53
- */ 
+ */
 // class EventEmitter {
 //   constructor() {
 //     this._events = Object.create(null); // 定义事件的存储对象
@@ -92,7 +92,6 @@
 // event.emit("adding", 1, 2, 3, 4);
 // event.emit("adding", 1, 2, 3, 4);
 
-
 // function Person (name, age) {
 //     this.name = name
 //     this.age = age
@@ -106,11 +105,10 @@
 
 // let obj = myNew(Person, 'polo', 25)
 
-
-var a = [1, [2, [3]]];
-const flatten = arr => Array.isArray(arr) ? 
-    arr.reduce((c, item) => [...c, ...flatten(item)], []) : [arr]
-    console.log(flatten(a));
+// let a = [1, [2, [3]]]
+// const flatten = arr => Array.isArray(arr)
+//     ? arr.reduce((c, item) => [...c, ...flatten(item)], []) : [arr]
+//     console.log(flatten(a))
 
 // let b = [1, [2, [3]]].flat(Infinity);
 // console.log(b)
@@ -121,6 +119,21 @@ const flatten = arr => Array.isArray(arr) ?
 //     : [arr];
 
 // console.log(flattenDeep([1, [[2], [3, [4]], 5]]))
+const fn = () => {
+    console.log(10)
+}
 
+const debounce = (fn, wait = 50) => {
+    let timer = 0
 
+    // return function(...args) {
+        if (timer) clearTimeout(timer)
 
+        timer = setTimeout(() => {
+            fn.apply(this)
+        }, wait)
+
+    // }
+}
+
+console.log(debounce(fn, 100))
