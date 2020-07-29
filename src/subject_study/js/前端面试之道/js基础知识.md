@@ -1,3 +1,8 @@
+<!--
+ * @Date: 2019-10-25 19:12:58
+ * @LastEditors: PoloHuang
+ * @LastEditTime: 2020-07-29 10:51:46
+--> 
 ## 对象（Object）类型
 ```
 例子：
@@ -46,4 +51,11 @@ null == undefined  //true
 // (0011) 表示循环
 0.1 = 2^-4 * 1.10011(0011)
 解决方法：parseFloat((0.1 + 0.2).toFixed(10)) === 0.3 // true
+```
+## 通过var, const, let 关键字声明的变量无法用delete操作符删除
+```
+const name = 'lydia'
+age = 21
+console.log(delete name) //false
+console.log(delete age)	//true
 ```

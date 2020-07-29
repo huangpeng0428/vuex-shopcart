@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-07-22 16:36:53
+ * @LastEditTime: 2020-07-29 13:44:19
  */
 // class EventEmitter {
 //   constructor() {
@@ -119,21 +119,82 @@
 //     : [arr];
 
 // console.log(flattenDeep([1, [[2], [3, [4]], 5]]))
-const fn = () => {
-    console.log(10)
+// const fn = () => {
+//     console.log(10)
+// }
+
+// const debounce = (fn, wait = 50) => {
+//     let timer = 0
+
+//     // return function(...args) {
+//         if (timer) clearTimeout(timer)
+
+//         timer = setTimeout(() => {
+//             fn.apply(this)
+//         }, wait)
+
+//     // }
+// }
+
+// console.log(debounce(fn, 100))
+
+
+// promise
+const p = 'PENDING'
+const r = 'RESLOVE'
+const j = 'REJECT'
+
+function myPromise (cb) {
+    const that = this
+    that.statu = p
+    that.value = null
+    that.succFuncArr = []
+    this.failFuncArr = []
+    function resolve(val) {
+        if (that.statu === p) {
+          that.statu = r
+          that.value = val
+          that.succFuncArr.map(fn => fn(that.value));
+        }
+    }
+
+    function reject(val) {
+        if (that.statu === p) {
+          that.statu = j;
+          that.value = val;
+          that.failFuncArr.map(fn => fn(that.value));
+        }
+    }
+
+    try {
+        cb(resolve, reject)
+    } catch (error) {
+        reject(error);
+    }
 }
 
-const debounce = (fn, wait = 50) => {
-    let timer = 0
 
-    // return function(...args) {
-        if (timer) clearTimeout(timer)
+myPromise.prototype.then = function(full, fail) {
+  const that = this;
+  full = typeof full === "function" ? full : f => f;
+  fail = typeof full === "function" ? fail : f => f;
 
-        timer = setTimeout(() => {
-            fn.apply(this)
-        }, wait)
+  if (that.statu === p) {
+    that.funcArr.push(full);
+  }
 
-    // }
-}
+  if (that.statu === r) {
+    full(that.value);
+  }
 
-console.log(debounce(fn, 100))
+  if (that.statu === j) {
+    fail(that.value);
+  }
+};
+
+new myPromise((res, rej) => {
+  res(2);
+  // setTimeout(() => { res(2) }, 2000)
+}).then((value, err) => {
+  console.log(value + 2);
+});
