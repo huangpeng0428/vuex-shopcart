@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-07-29 13:44:19
+ * @LastEditTime: 2020-07-30 18:05:22
  */
 // class EventEmitter {
 //   constructor() {
@@ -140,61 +140,82 @@
 
 
 // promise
-const p = 'PENDING'
-const r = 'RESLOVE'
-const j = 'REJECT'
+// const p = 'PENDING'
+// const r = 'RESLOVE'
+// const j = 'REJECT'
 
-function myPromise (cb) {
-    const that = this
-    that.statu = p
-    that.value = null
-    that.succFuncArr = []
-    this.failFuncArr = []
-    function resolve(val) {
-        if (that.statu === p) {
-          that.statu = r
-          that.value = val
-          that.succFuncArr.map(fn => fn(that.value));
-        }
-    }
+// function myPromise (cb) {
+//     const that = this
+//     that.statu = p
+//     that.value = null
+//     that.succFuncArr = []
+//     this.failFuncArr = []
+//     function resolve(val) {
+//         if (that.statu === p) {
+//           that.statu = r
+//           that.value = val
+//           that.succFuncArr.map(fn => fn(that.value));
+//         }
+//     }
 
-    function reject(val) {
-        if (that.statu === p) {
-          that.statu = j;
-          that.value = val;
-          that.failFuncArr.map(fn => fn(that.value));
-        }
-    }
+//     function reject(val) {
+//         if (that.statu === p) {
+//           that.statu = j;
+//           that.value = val;
+//           that.failFuncArr.map(fn => fn(that.value));
+//         }
+//     }
 
-    try {
-        cb(resolve, reject)
-    } catch (error) {
-        reject(error);
-    }
-}
+//     try {
+//         cb(resolve, reject)
+//     } catch (error) {
+//         reject(error);
+//     }
+// }
 
 
-myPromise.prototype.then = function(full, fail) {
-  const that = this;
-  full = typeof full === "function" ? full : f => f;
-  fail = typeof full === "function" ? fail : f => f;
+// myPromise.prototype.then = function(full, fail) {
+//   const that = this;
+//   full = typeof full === "function" ? full : f => f;
+//   fail = typeof full === "function" ? fail : f => f;
 
-  if (that.statu === p) {
-    that.funcArr.push(full);
-  }
+//   if (that.statu === p) {
+//     that.funcArr.push(full);
+//   }
 
-  if (that.statu === r) {
-    full(that.value);
-  }
+//   if (that.statu === r) {
+//     full(that.value);
+//   }
 
-  if (that.statu === j) {
-    fail(that.value);
-  }
+//   if (that.statu === j) {
+//     fail(that.value);
+//   }
+// };
+
+// new myPromise((res, rej) => {
+//   res(2);
+//   // setTimeout(() => { res(2) }, 2000)
+// }).then((value, err) => {
+//   console.log(value + 2);
+// });
+
+
+
+var nums1 = [1,2,3,0,0,0], m = 3
+    nums2 = [2,5,6],       n = 3
+
+// Array.prototype.push.apply(nums1, nums2);
+
+
+// console.log(nums1.splice(0, m));
+// console.log(nums2.splice(0, n));
+
+var merge = function(nums1, m, nums2, n) {
+  (nums1.length = m), (nums2.length = n);
+
+  Array.prototype.push.apply(nums1, nums2);
+  nums1.sort(function(a, b) {
+    return a - b;
+  });
 };
-
-new myPromise((res, rej) => {
-  res(2);
-  // setTimeout(() => { res(2) }, 2000)
-}).then((value, err) => {
-  console.log(value + 2);
-});
+console.log(merge(nums1, m, nums2, n))
