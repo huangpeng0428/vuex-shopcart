@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-07-30 18:05:22
+ * @LastEditTime: 2020-07-31 14:57:38
  */
 // class EventEmitter {
 //   constructor() {
@@ -201,21 +201,71 @@
 
 
 
-var nums1 = [1,2,3,0,0,0], m = 3
-    nums2 = [2,5,6],       n = 3
+// var nums1 = [1,2,3,0,0,0], m = 3
+//     nums2 = [2,5,6],       n = 3
 
-// Array.prototype.push.apply(nums1, nums2);
+// // Array.prototype.push.apply(nums1, nums2);
 
 
-// console.log(nums1.splice(0, m));
-// console.log(nums2.splice(0, n));
+// // console.log(nums1.splice(0, m));
+// // console.log(nums2.splice(0, n));
 
-var merge = function(nums1, m, nums2, n) {
-  (nums1.length = m), (nums2.length = n);
+// var merge = function(nums1, m, nums2, n) {
+//   (nums1.length = m), (nums2.length = n);
 
-  Array.prototype.push.apply(nums1, nums2);
-  nums1.sort(function(a, b) {
-    return a - b;
-  });
-};
-console.log(merge(nums1, m, nums2, n))
+//   Array.prototype.push.apply(nums1, nums2);
+//   nums1.sort(function(a, b) {
+//     return a - b;
+//   });
+// };
+// console.log(merge(nums1, m, nums2, n))
+
+
+	function Scheduler() {
+    this.list = [];
+    this.add = function(promiseCreator) {
+      this.list.push(promiseCreator);
+    };
+    this.maxCount = 2;
+
+    var tempRunIndex = 0;
+
+    this.taskStart = function() {
+      for (var i = 0; i < this.maxCount; i++) {
+        request.bind(this)();
+      }
+    };
+
+    function request() {
+      if (!this.list || !this.list.length || tempRunIndex >= this.maxCount) {
+        return;
+      }
+      tempRunIndex++;
+      this.list
+        .shift()()
+        .then(() => {
+          tempRunIndex--;
+          request.bind(this)();
+        });
+    }
+  }
+
+  function timeout(time) {
+    return new Promise(resolve => {
+      setTimeout(resolve, time);
+    });
+  }
+
+  var scheduler = new Scheduler();
+
+  function addTask(time, order) {
+    scheduler.add(() => timeout(time).then(() => console.log(order)));
+  }
+
+  addTask(1000, 1);
+  addTask(500, 2);
+  addTask(300, 3);
+  addTask(400, 4);
+
+  scheduler.taskStart();
+ 
