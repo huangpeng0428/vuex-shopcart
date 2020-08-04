@@ -1,3 +1,8 @@
+<!--
+ * @Date: 2020-01-15 11:09:52
+ * @LastEditors: PoloHuang
+ * @LastEditTime: 2020-08-03 13:34:08
+--> 
 **对象的扩展**
 1. super关键字
 ```
@@ -67,4 +72,9 @@ let func = (...rest) => {
 }
 
 func(1,2,3)
+```
+**箭头函数**
+```js
+//this指向问题
+https://blog.csdn.net/w390058785/article/details/82884032
 ```

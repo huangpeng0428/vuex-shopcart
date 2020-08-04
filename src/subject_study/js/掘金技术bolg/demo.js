@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-07-31 14:57:38
+ * @LastEditTime: 2020-08-03 19:20:55
  */
 // class EventEmitter {
 //   constructor() {
@@ -221,51 +221,32 @@
 // console.log(merge(nums1, m, nums2, n))
 
 
-	function Scheduler() {
-    this.list = [];
-    this.add = function(promiseCreator) {
-      this.list.push(promiseCreator);
-    };
-    this.maxCount = 2;
 
-    var tempRunIndex = 0;
+// function fun(num) {
+//   let num1 = num / 10;
+//   let num2 = num % 10;
+//   if (num1 < 1) {
+//     return num;
+//   } else {
+//     num1 = Math.floor(num1);
+//     console.log(num1);
+//     console.log(fun(num1));
+//     return `${num2}${fun(num1)}`;
+//   }
+// }
 
-    this.taskStart = function() {
-      for (var i = 0; i < this.maxCount; i++) {
-        request.bind(this)();
-      }
-    };
-
-    function request() {
-      if (!this.list || !this.list.length || tempRunIndex >= this.maxCount) {
-        return;
-      }
-      tempRunIndex++;
-      this.list
-        .shift()()
-        .then(() => {
-          tempRunIndex--;
-          request.bind(this)();
-        });
-    }
+function fun(num) {
+  let num1 = num / 10;
+  let num2 = num % 10;
+  if (num1 < 1) {
+    return num;
+  } else {
+    num1 = Math.floor(num1);
+    console.log(num1);
+    console.log(fun(num1));
+    return `${num2}${fun(num1)}`;
   }
-
-  function timeout(time) {
-    return new Promise(resolve => {
-      setTimeout(resolve, time);
-    });
-  }
-
-  var scheduler = new Scheduler();
-
-  function addTask(time, order) {
-    scheduler.add(() => timeout(time).then(() => console.log(order)));
-  }
-
-  addTask(1000, 1);
-  addTask(500, 2);
-  addTask(300, 3);
-  addTask(400, 4);
-
-  scheduler.taskStart();
- 
+}
+var a = fun(12345);
+console.log(a);
+console.log(typeof a);
