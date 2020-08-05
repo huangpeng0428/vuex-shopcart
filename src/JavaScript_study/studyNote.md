@@ -349,7 +349,7 @@ const toTree = data => {
 toTree(dataArr)
 ```
 **递归将树形结构转换成平级数组**
-```
+```js
 var dataArr = [
     {id: 1, name: "办公管理", pid: 0 ,
         children:[
@@ -388,7 +388,29 @@ const changeData = data => {
 }
 changeData(dataArr)
 console.log(arr)
+
 ```
+
+**递归链条中所有的父级 id**
+```js
+const value = 3
+const res = []
+function fn(data, temp = []) {
+    for(node of data) {
+        if(node.id === value) {
+            res = temp
+            break
+        }
+        if(node.children) {
+            fn(node.children, [...temp, ...[node.id]])
+        } 
+    }
+    return [...res, ...[value]]
+}
+fn(data) // 输出 [1， 3]
+```
+
+
 **冒泡排序**
 ```
 let arr = [ 2, 3, 4, 44, 9, 4, 3, 2, 5, 1, 65, 2, 3, 6 ]

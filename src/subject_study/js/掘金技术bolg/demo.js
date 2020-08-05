@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-08-03 19:20:55
+ * @LastEditTime: 2020-08-05 16:29:08
  */
 // class EventEmitter {
 //   constructor() {
@@ -19,6 +19,8 @@
 //       this._events[eventName].push({ fn, isOnce }); // 存入监听的事件名和事件
 //     }
 //   }
+
+// const { stringify } = require("qs");
 
 //   //一次性事件监听
 //   once(eventName, fn) {
@@ -235,18 +237,134 @@
 //   }
 // }
 
-function fun(num) {
-  let num1 = num / 10;
-  let num2 = num % 10;
-  if (num1 < 1) {
-    return num;
-  } else {
-    num1 = Math.floor(num1);
-    console.log(num1);
-    console.log(fun(num1));
-    return `${num2}${fun(num1)}`;
+// function fun(num) {
+//   let num1 = num / 10;
+//   let num2 = num % 10;
+//   if (num1 < 1) {
+//     return num;
+//   } else {
+//     num1 = Math.floor(num1);
+//     console.log(num1);
+//     console.log(fun(num1));
+//     return `${num2}${fun(num1)}`;
+//   }
+// }
+// var a = fun(12345);
+// console.log(a);
+// console.log(typeof a);
+
+// let list =[
+//     {id:1,name:'部门A',parentId:0},
+//     {id:2,name:'部门B',parentId:0},
+//     {id:3,name:'部门C',parentId:1},
+//     {id:4,name:'部门D',parentId:1},
+//     {id:5,name:'部门E',parentId:2},
+//     {id:6,name:'部门F',parentId:3},
+//     {id:7,name:'部门G',parentId:2},
+//     {id:8,name:'部门H',parentId:4}
+// ];
+
+// function convert(data) {
+//   let obj = {}
+//   data.forEach(e => {
+//     obj[e.id] = e;
+//   });
+//   return data.reduce((c, item) => {
+//     let parents = obj[item.parentId]
+//     if (parents) {
+//       if (!parents.children) parents.children = [];
+//       parents.children.push(item);
+//     } else {
+//       c.push(item);
+//     }
+//     return c
+//   }, [])
+// }
+
+// const result = convert(list)
+// console.log(result);
+
+
+
+// 回文数
+// let a = 12221
+// var isPalindrome = function(x) {
+//   if(x < 0) return false
+//   console.log(x)
+//   return x === parseInt(x.toString().split('').reverse().join(''))
+// };
+// console.log(isPalindrome(a));
+
+// 最长公共前缀
+// const arr = ["swer", "flow", "yflight"];
+// var longestCommonPrefix = function(arr) {
+//   let firstData = arr[0]
+//   console.log(firstData);
+//   for(let i = 1; i < arr.length; i++) {
+//     for (let j = 0; j < firstData.length && j < arr[i].length; j++) {
+//       console.log(firstData.indexOf(arr[i][j]));
+//       if(firstData[j] !== arr[i][j]) {
+//         return firstData.substring(0, j);
+//       }
+//     }
+//   }
+// };
+// console.log(longestCommonPrefix(arr))
+
+
+// 	/**
+//  * @param {string} s
+//  * @return {boolean}
+//  */
+// var isValid = function(s) {
+//     let arr = []
+//     let len = s.length
+//     if (len%2) return false
+//     for (let i = 0; i < len; i++) {
+//         let letter = s[i]
+//         switch(letter) {
+//             case "(": {
+//                 arr.push(letter)
+//                 break;
+//             }
+//             case "[": {
+//                 arr.push(letter)
+//                 break;
+//             }
+//             case "{": {
+//                 arr.push(letter)
+//                 break;
+//             }
+//             case ")": {
+//                 if (arr.pop() !== "(") return false
+//                 break;
+//             }
+//             case "]": {
+//                 if (arr.pop() !== "[") return false
+//                 break;
+//             }
+//             case "}": {
+//                 if (arr.pop() !== "{") return false
+//                 break;
+//             }
+//         }
+//     }
+//     return !arr.length
+
+// };
+
+// console.log(isValid('{[]}'))
+
+let nums = [2, 7, 11, 15], target = 9;
+
+const twoSum = (arr, target) => {
+  const Map = {}
+  for(let i = 0; i < arr.length; i++) {
+    let result = target - arr[i]
+    console.log(result)
+    if(Map[result] === arr[i]) return [i, arr[result]];
+    Map[result] = arr[i]
   }
-}
-var a = fun(12345);
-console.log(a);
-console.log(typeof a);
+};
+
+console.log(twoSum(nums, target));
