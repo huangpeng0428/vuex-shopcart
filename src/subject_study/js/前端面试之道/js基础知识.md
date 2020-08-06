@@ -1,7 +1,7 @@
 <!--
  * @Date: 2019-10-25 19:12:58
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-07-29 10:51:46
+ * @LastEditTime: 2020-08-06 10:53:43
 --> 
 ## 对象（Object）类型
 ```
@@ -58,4 +58,13 @@ const name = 'lydia'
 age = 21
 console.log(delete name) //false
 console.log(delete age)	//true
+```
+## 字符串类型能调用方法, 是因为有基础包装类型
+```js
+var name = 'test'
+name.split(',')
+// 基础包装类型做了哪些事：
+// 1.创建String类型的一个实例；
+// 2.在实例上调用指定的方法；
+// 3.销毁这个实例
 ```
