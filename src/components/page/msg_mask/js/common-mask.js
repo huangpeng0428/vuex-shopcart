@@ -10,6 +10,8 @@ MessageBox.install = function(Vue, options) {
 
     // 实例化vue实例
     currentMsg = new MessageBoxInstance()
+    console.log(document)
+    console.log(currentMsg.$mount())
     let msgBoxEl = currentMsg.$mount().$el
     document.body.appendChild(msgBoxEl)
   }

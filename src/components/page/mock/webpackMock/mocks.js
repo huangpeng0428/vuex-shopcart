@@ -1,8 +1,6 @@
 const Mock = require('mockjs')
 const faker = require('faker')
-const {
-  pathToRegexp
-} = require('path-to-regexp')
+const pathRegexp = require('path-to-regexp')
 
 // const API_MAP = require('../api/api_map')
 
@@ -22,7 +20,7 @@ function Chain() {
 
 Chain.prototype.add = function(pattern, cb) {
   const keys = []
-  const re = pathToRegexp(pattern, keys)
+  const re = pathRegexp(pattern, keys)
   this._routes.push({
     re,
     keys,

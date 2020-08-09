@@ -2,13 +2,18 @@
  * @Date: 2020-07-15 10:10:17
  * @LastEditors: PoloHuang
  * @LastEditTime: 2020-07-15 10:20:20
- */ 
-function deepCopy (obj, cache = []) {
+ */
+function deepCopy(obj, cache = []) {
+
   // typeof [] => 'object'
   // typeof {} => 'object'
   if (obj === null || typeof obj !== 'object') {
     return obj
   }
+
+  if (obj instanceof RegExp) return new RegExp(obj)
+  if (obj instanceof Date) return new Date(obj)
+
   // 如果传入的对象与缓存的相等, 则递归结束, 这样防止循环
   /**
    * 类似下面这种
@@ -21,7 +26,8 @@ function deepCopy (obj, cache = []) {
     return hit.copy
   }
 
-  const copy = Array.isArray(obj) ?  [] :   {}
+  const copy = Array.isArray(obj) ? [] : {}
+
   // 将copy首先放入cache, 因为我们需要在递归deepCopy的时候引用它
   cache.push({
     original: obj,
@@ -31,7 +37,7 @@ function deepCopy (obj, cache = []) {
     copy[key] = deepCopy(obj[key], cache)
   })
 
-  console.log(copy);
+  console.log(copy)
   return copy
 }
 
@@ -42,5 +48,8 @@ const obj = {
     }
 }
 
-console.log(deepCopy(obj));
-deepCopy(obj)
+obj.d = obj
+
+console.log(deepCopy(obj))
+
+// deepCopy(obj)

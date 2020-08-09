@@ -21,7 +21,7 @@
     "koa-router": "^9.0.1",
     "koa2-cors": "^2.0.6",
     "mockjs": "^1.1.0",
-    "path-to-regexp": "^6.1.0",
+    "path-to-regexp": "^3.2.0",
     "qs": "^6.9.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
