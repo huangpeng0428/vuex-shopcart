@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-15 10:10:17
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-07-15 10:20:20
+ * @LastEditTime: 2020-08-10 16:06:31
  */
 function deepCopy(obj, cache = []) {
 
@@ -28,6 +28,18 @@ function deepCopy(obj, cache = []) {
 
   const copy = Array.isArray(obj) ? [] : {}
 
+  const sym = Object.getOwnPropertySymbols(obj)
+  
+  if (sym.length) {
+    sym.forEach(res => {
+      if (typeof obj[res] === "obj") {
+        copy[res] = deepCopy(obj[res], cache);
+      } else {
+        copy[res] = obj[res];
+      }
+    });
+  }
+
   // 将copy首先放入cache, 因为我们需要在递归deepCopy的时候引用它
   cache.push({
     original: obj,
@@ -37,15 +49,17 @@ function deepCopy(obj, cache = []) {
     copy[key] = deepCopy(obj[key], cache)
   })
 
-  console.log(copy)
   return copy
 }
 
+let sym1 = Symbol("s")
 const obj = {
-    b: 1,
-    c: {
-        a: 2
-    }
+  b: 1,
+  c: {
+    a: /a/,
+    d: new Date("2020")
+  },
+  [sym1]: "test123"
 }
 
 obj.d = obj
