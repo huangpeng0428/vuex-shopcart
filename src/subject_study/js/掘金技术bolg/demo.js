@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-08-05 16:29:08
+ * @LastEditTime: 2020-08-10 14:57:37
  */
 // class EventEmitter {
 //   constructor() {
@@ -19,6 +19,8 @@
 //       this._events[eventName].push({ fn, isOnce }); // 存入监听的事件名和事件
 //     }
 //   }
+
+const { tempdir } = require("shelljs");
 
 // const { stringify } = require("qs");
 
@@ -355,16 +357,70 @@
 
 // console.log(isValid('{[]}'))
 
-let nums = [2, 7, 11, 15], target = 9;
 
-const twoSum = (arr, target) => {
-  const Map = {}
-  for(let i = 0; i < arr.length; i++) {
-    let result = target - arr[i]
-    console.log(result)
-    if(Map[result] === arr[i]) return [i, arr[result]];
-    Map[result] = arr[i]
-  }
-};
+/**
+ * @description: leetcode
+ * @param {twoSum} 
+ * @return {Object} 
+ * @author: PoloHuang
+ */
 
-console.log(twoSum(nums, target));
+// let nums = [2, 7, 11, 15], target = 9;
+
+// const twoSum = (arr, target) => {
+//   const Map = {}
+//   for(let i = 0; i < arr.length; i++) {
+//     let result = target - arr[i]
+//     console.log(result)
+//     if(Map[result] === arr[i]) return [i, arr[result]];
+//     Map[result] = arr[i]
+//   }
+// };
+
+// console.log(twoSum(nums, target));
+
+
+/**
+ * @description: input双向绑定实现 + 模板替换
+ * @param {type} 
+ * @return {type} 
+ * @author: PoloHuang
+ */
+
+// var obj = {};
+// console.log(obj);
+// Object.defineProperty(obj, "test", {
+//   configurable: true,
+//   set: function(value) {
+//     document.getElementById("root").value = value;
+//   },
+//   get: function() {
+//     return document.getElementById("root").value;
+//   }
+// });
+
+// var tmp = '{{name}}在学习{{demo}}'
+// var data = { name: "polo", demo: "js" };
+// function render(tmp, data) {
+//   return tmp.replace(/\{\{(.*?)\}\}/g, function(match, key) {
+//     console.log(data[key.trim()])
+//     return data[key.trim()];
+//   });
+// }
+// render(tmp, data)
+// console.log(render(tmp, data));
+
+
+/**
+ * @description: regexp
+ * @param {type} 
+ * @return {type} 
+ * @author: PoloHuang
+ */
+
+var str = "Hello45647 123 world!Hello 1423 world! ssfsdf";
+var patt1 = /\d+/;
+var result1 = patt1.exec(str);
+console.log(result1);
+
+
