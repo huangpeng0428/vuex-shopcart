@@ -412,7 +412,7 @@ fn(data) // 输出 [1， 3]
 
 
 **冒泡排序**
-```
+```js
 let arr = [ 2, 3, 4, 44, 9, 4, 3, 2, 5, 1, 65, 2, 3, 6 ]
 for(let i = 0; i < arr.length; i++) {
 	for(let j = 0; j < arr.length - i; j++) {
@@ -424,4 +424,10 @@ for(let i = 0; i < arr.length; i++) {
 	}
 }
 console.log(arr)
+```
+**Symbol的应用**
+1. 使用Symbol定义类的私有属性/方法
+2. 用于对象的属性，可以保证不会有同名的属性
+```js
+
 ```
