@@ -29,15 +29,15 @@ function deepCopy(obj, cache = []) {
   const copy = Array.isArray(obj) ? [] : {}
 
   const sym = Object.getOwnPropertySymbols(obj)
-  
+
   if (sym.length) {
     sym.forEach(res => {
-      if (typeof obj[res] === "obj") {
-        copy[res] = deepCopy(obj[res], cache);
+      if (typeof obj[res] === 'object') {
+        copy[res] = deepCopy(obj[res], cache)
       } else {
-        copy[res] = obj[res];
+        copy[res] = obj[res]
       }
-    });
+    })
   }
 
   // 将copy首先放入cache, 因为我们需要在递归deepCopy的时候引用它
@@ -52,14 +52,14 @@ function deepCopy(obj, cache = []) {
   return copy
 }
 
-let sym1 = Symbol("s")
+let sym1 = Symbol('s')
 const obj = {
   b: 1,
   c: {
     a: /a/,
-    d: new Date("2020")
+    d: new Date('2020')
   },
-  [sym1]: "test123"
+  [sym1]: 'test123'
 }
 
 obj.d = obj

@@ -20,8 +20,6 @@
 //     }
 //   }
 
-const { tempdir } = require("shelljs");
-
 // const { stringify } = require("qs");
 
 //   //一次性事件监听
@@ -142,7 +140,6 @@ const { tempdir } = require("shelljs");
 
 // console.log(debounce(fn, 100))
 
-
 // promise
 // const p = 'PENDING'
 // const r = 'RESLOVE'
@@ -177,7 +174,6 @@ const { tempdir } = require("shelljs");
 //     }
 // }
 
-
 // myPromise.prototype.then = function(full, fail) {
 //   const that = this;
 //   full = typeof full === "function" ? full : f => f;
@@ -203,13 +199,10 @@ const { tempdir } = require("shelljs");
 //   console.log(value + 2);
 // });
 
-
-
 // var nums1 = [1,2,3,0,0,0], m = 3
 //     nums2 = [2,5,6],       n = 3
 
 // // Array.prototype.push.apply(nums1, nums2);
-
 
 // // console.log(nums1.splice(0, m));
 // // console.log(nums2.splice(0, n));
@@ -223,8 +216,6 @@ const { tempdir } = require("shelljs");
 //   });
 // };
 // console.log(merge(nums1, m, nums2, n))
-
-
 
 // function fun(num) {
 //   let num1 = num / 10;
@@ -286,8 +277,6 @@ const { tempdir } = require("shelljs");
 // const result = convert(list)
 // console.log(result);
 
-
-
 // 回文数
 // let a = 12221
 // var isPalindrome = function(x) {
@@ -312,7 +301,6 @@ const { tempdir } = require("shelljs");
 //   }
 // };
 // console.log(longestCommonPrefix(arr))
-
 
 // 	/**
 //  * @param {string} s
@@ -357,11 +345,10 @@ const { tempdir } = require("shelljs");
 
 // console.log(isValid('{[]}'))
 
-
 /**
  * @description: leetcode
- * @param {twoSum} 
- * @return {Object} 
+ * @param {twoSum}
+ * @return {Object}
  * @author: PoloHuang
  */
 
@@ -379,11 +366,10 @@ const { tempdir } = require("shelljs");
 
 // console.log(twoSum(nums, target));
 
-
 /**
  * @description: input双向绑定实现 + 模板替换
- * @param {type} 
- * @return {type} 
+ * @param {type}
+ * @return {type}
  * @author: PoloHuang
  */
 
@@ -410,17 +396,16 @@ const { tempdir } = require("shelljs");
 // render(tmp, data)
 // console.log(render(tmp, data));
 
-
 /**
  * @description: regexp
- * @param {type} 
- * @return {type} 
+ * @param {type}
+ * @return {type}
  * @author: PoloHuang
  */
 
-var str = "Hello45647 123 world!Hello 1423 world! ssfsdf";
-var patt1 = /\d+/;
-var result1 = patt1.exec(str);
-console.log(result1);
+let str = 'Hello45647 123 world!Hello 1423 world! ssfsdf'
+let patt1 = /\d+/
+let result1 = patt1.exec(str)
+console.log(result1)
 
 
