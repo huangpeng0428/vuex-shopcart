@@ -429,9 +429,3 @@ for(let i = 0; i < arr.length; i++) {
 }
 console.log(arr)
 ```
-**Symbol的应用**
-1. 使用Symbol定义类的私有属性/方法
-2. 用于对象的属性，可以保证不会有同名的属性
-```js
-
-```
