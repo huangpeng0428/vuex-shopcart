@@ -52,6 +52,7 @@ https://www.jianshu.com/p/dee9f8b14771
 **理解js继承的6种方式**
 ```
 原文：https://www.cnblogs.com/Grace-zyy/p/8206002.html
+也可以参考： https://github.com/mqyqingfeng/Blog/issues/16
 //父类
 function Person(name) {         
 	this.name = name;           //父类构造函数属性

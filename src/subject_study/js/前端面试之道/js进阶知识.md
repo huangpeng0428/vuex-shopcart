@@ -104,7 +104,7 @@ function throttle(func, wait) {
     }
 }
 ```
-new的原理
+## new的原理
 ```
 function myNews(fun) {
     return function F() {
@@ -143,5 +143,13 @@ function outer() {
 var inner = outer()
 inner()
 当程序执行完var inner = outer()，其实outer的执行环境并没有被销毁，因为他里面的变量a仍然被被inner的函数作用域链所引用，当程序执行完inner(), 这时候，inner和outer的执行环境才会被销毁调；《JavaScript高级编程》书中建议：由于闭包会携带包含它的函数的作用域，因为会比其他函数占用更多内容，过度使用闭包，会导致内存占用过多。
+```
+## Object.create的实现
+```js
+Object.prototype.myCreate = function(obj) {
+    function F(){}
+    F.prototype = obj
+    return new F()
+}
 ```
 

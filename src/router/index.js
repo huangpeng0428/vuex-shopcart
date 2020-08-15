@@ -1,14 +1,15 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import home from '@/components/page/vuex_car/home';                     // vuex购物车demo
-import product from '@/components/page/vuex_car/product';               // vuex购物车demo
+import Vue from 'vue'
+import Router from 'vue-router'
+import home from '@/components/page/vuex_car/home'                     // vuex购物车demo
+import product from '@/components/page/vuex_car/product'               // vuex购物车demo
 import filters from '@/components/page/filter_demo/filters'             // vue 过滤
 import MsgContent from '@/components/page/msg_mask/page/MsgContent'     // vue弹窗插件
 import longList from '@/components/page/long_list/list'         // 长列表优化
 import sliderList from '@/components/page/sliderList/index'     // 轮播
 import mockPage from '@/components/page/mock/mockFrontend'      // mock模拟数据
+import vueDirective from '@/components/page/vue_directive'      // mock模拟数据
 
-Vue.use(Router);
+Vue.use(Router)
 
 export default new Router({
     routes: [
@@ -51,6 +52,11 @@ export default new Router({
             path: '/mockPage',
             name: 'mockPage',
             component: mockPage
+        },
+        {
+            path: '/vueDirective',
+            name: 'vueDirective',
+            component: vueDirective
         }
     ]
-});
+})
