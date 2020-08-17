@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-03-25 15:12:04
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-05-11 15:34:54
+ * @LastEditTime: 2020-08-17 09:52:17
  -->
 ## vue2.x数据监听 Object.defineProperty、vue3.x数据监听 Proxy
 **Object.defineProperty 不足**
@@ -105,4 +105,8 @@ https://blog.csdn.net/lfcss/article/details/88786332
 ```
 computed 是在beforeCreated 和 created 之间执行的
 https://blog.csdn.net/u013970232/article/details/90317829
+```
+**vue nextTick原理**
+```
+https://segmentfault.com/a/1190000012861862
 ```
