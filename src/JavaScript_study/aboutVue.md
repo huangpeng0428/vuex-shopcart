@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-03-25 15:12:04
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-08-17 09:52:17
+ * @LastEditTime: 2020-08-17 16:19:47
  -->
 ## vue2.x数据监听 Object.defineProperty、vue3.x数据监听 Proxy
 **Object.defineProperty 不足**
@@ -63,7 +63,7 @@ vue有两种形式的代码 compiler（模板）模式和runtime模式（运行�
 csdn: https://blog.csdn.net/wxl1555/article/details/83187647?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1.nonecase
 ```
 **vue全局自动化注册组件**
-```
+```js
 installComs(require['context']('./', false, /\.vue$/), 'Edit')
 export const installComs = (context: any, type: string): any => {
   console.log(context.keys())
