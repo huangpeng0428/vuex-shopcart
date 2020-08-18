@@ -110,3 +110,7 @@ https://blog.csdn.net/u013970232/article/details/90317829
 ```
 https://segmentfault.com/a/1190000012861862
 ```
+**router和route的区别**
+```
+https://blog.csdn.net/benben513624/article/details/86657492
+```
