@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-08-10 14:57:37
+ * @LastEditTime: 2020-08-20 10:34:25
  */
 // class EventEmitter {
 //   constructor() {
@@ -403,9 +403,51 @@
  * @author: PoloHuang
  */
 
-let str = 'Hello45647 123 world!Hello 1423 world! ssfsdf'
-let patt1 = /\d+/
-let result1 = patt1.exec(str)
-console.log(result1)
+// let str = 'Hello45647 123 world!Hello 1423 world! ssfsdf'
+// let patt1 = /\d+/
+// let result1 = patt1.exec(str)
+// console.log(result1)
+
+/**
+ * @description: demo
+ * @param {type} 
+ * @return {type} 
+ * @author: PoloHuang
+ */
+
+//  const value = {number: 10}
+//  const func = (data = { ...value }) => {
+//     console.log(data.number *= 2)
+//  }
+//  //或者
+//  const func = (data = value ) => {
+//    console.log((data.number *= 2));
+//  };
+// func()
+// func()
+// func(value)
+// func(value)
+
+let nums = [1, 5, 2 ,9, 6, 10, 6, 8]
+ 
+const quickFunc = nums => {
+    if(nums.length <= 1) return nums
+    const initIndex = Math.floor((0 + nums.length) / 2)
+    const initData = nums.splice(initIndex, 1)[0]
+    const left = []
+    const right = []
+    for(let i = 0; i < nums.length; i++) {
+        if(nums[i] < initData) {
+            left.push(nums[i])
+        }
+        if(nums[i] > initData) {
+            right.push(nums[i]);
+        }
+    }
+    return quickFunc(left).concat([initData], quickFunc(right));
+};
+
+console.log(quickFunc(nums));
+
 
 

@@ -418,15 +418,39 @@ fn(data) // 输出 [1， 3]
 
 **冒泡排序**
 ```js
-let arr = [ 2, 3, 4, 44, 9, 4, 3, 2, 5, 1, 65, 2, 3, 6 ]
-for(let i = 0; i < arr.length; i++) {
-	for(let j = 0; j < arr.length - i; j++) {
-		if(arr[j] < arr[j + 1]) {
-			let item = arr[j + 1]
-			arr[j + 1] = arr[j]
-			arr[j] = item
-		}
-	}
+let nums = [ 2, 3, 4, 44, 9, 4, 3, 2, 5, 1, 65, 2, 3, 6 ]
+const bubbleFunc = arr => {
+    for(let i = 0; i < arr.length; i++) {
+        for(let j = 0; j < arr.length - i; j++) {
+            if(arr[j] < arr[j + 1]) {
+                let item = arr[j + 1]
+                arr[j + 1] = arr[j]
+                arr[j] = item
+            }
+        }
+    }
 }
-console.log(arr)
+console.log(nums)
+```
+**快速排序**
+```js
+let nums = [1, 5, 2 ,9, 6, 10, 6, 8]
+const quickFunc = nums => {
+    if(nums.length <= 1) return nums
+    const initIndex = Math.floor((0 + nums.length) / 2)
+    const initData = nums.splice(initIndex, 1)[0]
+    const left = []
+    const right = []
+    for(let i = 0; i < nums.length; i++) {
+        if(nums[i] < initData) {
+            left.push(nums[i])
+        }
+        if(nums[i] > initData) {
+            right.push(nums[i]);
+        }
+    }
+    return quickFunc(left).concat([initData], quickFunc(right));
+};
+
+console.log(quickFunc(nums));
 ```
