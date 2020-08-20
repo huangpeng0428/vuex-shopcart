@@ -2,7 +2,7 @@ const { LinkedList} = require("dsa.js");
 /*
  * @Date: 2020-08-18 10:29:18
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-08-18 18:36:39
+ * @LastEditTime: 2020-08-20 14:55:57
  */
 // var minArray = function(numbers) {
 //     let len = numbers.length;
@@ -18,29 +18,29 @@ const { LinkedList} = require("dsa.js");
 //     return numbers
 // };
 
-let arr = [3, 4, 5, 1, 2]
 /**
  * @param {number[]} numbers
  * @return {number}
  */
-var minArray = function(numbers) {
-    let left=0,
-        right=numbers.length-1;
-    while(left <= right){
-        // 二分法
-        const temp=Math.floor((right+left)/2)
-          if (numbers[temp] == numbers[right]) {
-            right--;
-          } else if (numbers[temp] > numbers[right]) {
-            left = temp + 1;
-          } else if (numbers[temp] < numbers[right]) {
-            right = temp;
-          }
-    }
-    return numbers[left]
-};
-const a = minArray(arr);
-console.log(a)
+// let arr = [3, 4, 5, 1, 2];
+// var minArray = function(numbers) {
+//     let left=0,
+//         right=numbers.length-1;
+//     while(left <= right){
+//         // 二分法
+//         const temp=Math.floor((right+left)/2)
+//           if (numbers[temp] == numbers[right]) {
+//             right--;
+//           } else if (numbers[temp] > numbers[right]) {
+//             left = temp + 1;
+//           } else if (numbers[temp] < numbers[right]) {
+//             right = temp;
+//           }
+//     }
+//     return numbers[left]
+// };
+// const a = minArray(arr);
+// console.log(a)
 
 // let l1 = '1->2->4';
 // let l2 = '1->3->4';
@@ -72,6 +72,32 @@ console.log(a)
 //     }
 // };
 // mergeTwoLists(l1, l2);
-var li = new LinkedList();
-console.log(li)
-console.log(1)
+// var li = new LinkedList();
+// console.log(li)
+// console.log(1)
+
+/**
+ * @description: 二叉树最近的公共祖先
+ * @param {type} 
+ * @return {type} 
+ * @author: PoloHuang
+ */
+var lowestCommonAncestor = function(root, p, q) {
+    let ans;
+    const dfs = (root, p, q) => {
+        if (root === null) return false;
+        const lson = dfs(root.left, p, q);
+        const rson = dfs(root.right, p, q);
+        if ((lson && rson) || ((root.val === p.val || root.val === q.val) && (lson || rson))) {
+            ans = root;
+        } 
+        return lson || rson || (root.val === p.val || root.val === q.val);
+    }
+    dfs(root, p, q);
+    return ans;
+};
+
+let root = [3, 5, 1, 6, 2, 0, 8, null, null, 7, 4],
+  p = 5,
+  q = 1;
+lowestCommonAncestor(root, p, q);
