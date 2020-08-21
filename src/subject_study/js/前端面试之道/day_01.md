@@ -1,10 +1,10 @@
 <!--
  * @Date: 2019-10-17 15:53:18
  * @LastEditors: PoloHuang
- * @LastEditTime: 2019-10-17 19:07:03
+ * @LastEditTime: 2020-08-20 17:55:21
  -->
  1. 用递归算法实现，数组长度为5且元素的随机数在2-32间不重复的值(不能使用for，while)
-```
+```js
 var arr = new Array(5)
 var num = Math.floor(Math.random()*31 + 2)
 var i = 0 
@@ -29,7 +29,7 @@ console.log(randomArr(num, arr))
 ```
 
 2. 判断数据类型经典方法
-```
+```js
 const isType = (targe, type) => {
     if(typeof targe !== 'object')  return
     const typeString = Object.prototype.toString.call(targe)
@@ -39,7 +39,7 @@ const isType = (targe, type) => {
 isType([], 'Array') //true
 ```
 3. 简要描述下js有哪些内置的对象
-```
+```js
 时间对象Date
 字符串对象String
 数学对象Math

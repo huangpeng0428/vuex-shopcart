@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 13:38:54
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-07-16 11:03:27
+ * @LastEditTime: 2020-08-21 15:43:59
  */
 class EventEmitter {
   constructor() {
@@ -13,10 +13,8 @@ class EventEmitter {
     }
     if (!this._event[eventName]) {
       this._event[eventName] = []
-      this._event[eventName].push({ fn, isOnce })
-    } else {
-      this._event[eventName].push({ fn, isOnce })
     }
+    this._event[eventName].push({ fn, isOnce });
   }
 
   once(eventName, fn) {
