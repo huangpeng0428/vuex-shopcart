@@ -454,3 +454,7 @@ const quickFunc = nums => {
 
 console.log(quickFunc(nums));
 ```
+**前端性能优化不完全手册**
+```
+https://segmentfault.com/a/1190000018827395
+```
