@@ -20,3 +20,7 @@ https://www.jianshu.com/p/227cee9c8d15
 header压缩： HTTP/2压缩消息头，减少了传输数据的大小
 
 ```
+#### http get和post 
+```
+https://www.zhihu.com/question/28586791
+```
