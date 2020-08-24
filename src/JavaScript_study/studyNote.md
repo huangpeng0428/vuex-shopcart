@@ -243,7 +243,7 @@ setTimeout1
 
 ```
 **递归实现一个深拷贝**
-```
+```js
 const deepClone = obj => {
     let copy = obj instanceof Array ? [] : {}
 	for (let i in obj) {
@@ -323,7 +323,7 @@ const a = {
 
 ```
 **非递归实现tree**
-```
+```js
 let dataArr = [
     { id: 1, name: "办公管理", pid: 0 },
     { id: 2, name: "请假申请", pid: 1 },
