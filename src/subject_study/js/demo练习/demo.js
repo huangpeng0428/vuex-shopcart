@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-08-24 09:56:59
+ * @LastEditTime: 2020-08-27 17:59:58
  */
 // class EventEmitter {
 //   constructor() {
@@ -410,8 +410,8 @@
 
 /**
  * @description: 作用域demo
- * @param {type} 
- * @return {type} 
+ * @param {type}
+ * @return {type}
  * @author: PoloHuang
  */
 
@@ -430,8 +430,8 @@
 
 /**
  * @description: 快排demo
- * @param {type} 
- * @return {type} 
+ * @param {type}
+ * @return {type}
  * @author: PoloHuang
  */
 
@@ -455,76 +455,74 @@
 
 // console.log(quickFunc(nums));
 
-
 /**
  * @description: 发布订阅
- * @param {type} 
- * @return {type} 
+ * @param {type}
+ * @return {type}
  * @author: PoloHuang
  */
-    let HunterUnion = {
-        type: 'hunt',
-        topics: Object.create(null),
-        subscribe: function(topic, fn) {
-            if(!this.topics[topic]) {
-                this.topics[topic] = []
-            }
-            this.topics[topic].push(fn)
-        },
-        publish: function(topic, money) {
-            if(!this.topics[topic]) return
-            for(fn of this.topics[topic]) {
-                fn(money)
-            }
-        }
-    }
+    // let HunterUnion = {
+    //     type: 'hunt',
+    //     topics: Object.create(null),
+    //     subscribe: function(topic, fn) {
+    //         if(!this.topics[topic]) {
+    //             this.topics[topic] = []
+    //         }
+    //         this.topics[topic].push(fn)
+    //     },
+    //     publish: function(topic, money) {
+    //         if(!this.topics[topic]) return
+    //         for(fn of this.topics[topic]) {
+    //             fn(money)
+    //         }
+    //     }
+    // }
 
-    function Hunter(name, level) {
-        this.name = name
-        this.level =level
-    }
+    // function Hunter(name, level) {
+    //     this.name = name
+    //     this.level =level
+    // }
 
-    Hunter.prototype.subscribe = function(topic, fn) {
-        console.log(this.level + '猎人' + this.name + '订阅了狩猎' + topic + '的任务')
-	    HunterUnion.subscribe(topic, fn)
-    }
-    Hunter.prototype.publish = function(topic, money) {
-        console.log(this.level + '猎人' + this.name + '发布了狩猎' + topic + '的任务')
-	    HunterUnion.publish(topic, money)
-    }
+    // Hunter.prototype.subscribe = function(topic, fn) {
+    //     console.log(this.level + '猎人' + this.name + '订阅了狩猎' + topic + '的任务')
+	//     HunterUnion.subscribe(topic, fn)
+    // }
+    // Hunter.prototype.publish = function(topic, money) {
+    //     console.log(this.level + '猎人' + this.name + '发布了狩猎' + topic + '的任务')
+	//     HunterUnion.publish(topic, money)
+    // }
 
-    let hunterMing = new Hunter('小明', '黄金')
-	let hunterJin = new Hunter('小金', '白银')
-	let hunterZhang = new Hunter('小张', '黄金')
-    let hunterPeter = new Hunter('Peter', '青铜')
-    
-    	//小明，小金，小张分别订阅了狩猎tiger的任务
-	hunterMing.subscribe('tiger', function(money){
-		console.log('小明表示：' + (money > 200 ? '' : '不') + '接取任务')
-	})
-	// hunterJin.subscribe('tiger', function(money){
-	// 	console.log('小金表示：接取任务')
+    // let hunterMing = new Hunter('小明', '黄金')
+	// let hunterJin = new Hunter('小金', '白银')
+	// let hunterZhang = new Hunter('小张', '黄金')
+    // let hunterPeter = new Hunter('Peter', '青铜')
+
+    // 	//小明，小金，小张分别订阅了狩猎tiger的任务
+	// hunterMing.subscribe('tiger', function(money){
+	// 	console.log('小明表示：' + (money > 200 ? '' : '不') + '接取任务')
 	// })
-	// hunterZhang.subscribe('tiger', function(money){
-	// 	console.log('小张表示：接取任务')
+	// // hunterJin.subscribe('tiger', function(money){
+	// // 	console.log('小金表示：接取任务')
+	// // })
+	// // hunterZhang.subscribe('tiger', function(money){
+	// // 	console.log('小张表示：接取任务')
+	// // })
+    // //Peter订阅了狩猎sheep的任务
+	// hunterPeter.subscribe('sheep', function(money){
+	// 	console.log('Peter表示：接取任务')
 	// })
-    //Peter订阅了狩猎sheep的任务
-	hunterPeter.subscribe('sheep', function(money){
-		console.log('Peter表示：接取任务')
-	})
-	
-	//Peter发布了狩猎tiger的任务
-    hunterPeter.publish('tiger', 198)
-    
-    hunterMing.publish('sheep')
-	
-	//猎人们发布(发布者)或订阅(观察者/订阅者)任务都是通过猎人工会(调度中心)关联起来的，他们没有直接的交流。
 
+	// //Peter发布了狩猎tiger的任务
+    // hunterPeter.publish('tiger', 198)
+
+    // hunterMing.publish('sheep')
+
+	// 猎人们发布(发布者)或订阅(观察者/订阅者)任务都是通过猎人工会(调度中心)关联起来的，他们没有直接的交流。
 
 /**
  * @description: 观察者模式
- * @param {type} 
- * @return {type} 
+ * @param {type}
+ * @return {type}
  * @author: PoloHuang
  */
 // function Hunter(name, level) {
@@ -559,7 +557,5 @@
 
 // hunterLi.subscribe()
 
-//地址： https://blog.csdn.net/hf872914334/article/details/88899326
-
-
+// 地址： https://blog.csdn.net/hf872914334/article/details/88899326
 

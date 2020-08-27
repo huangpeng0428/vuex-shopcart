@@ -1,9 +1,9 @@
 /*
  * @Date: 2020-01-08 10:09:48
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-08-05 17:41:02
- */ 
-// 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
+ * @LastEditTime: 2020-08-27 17:23:08
+ */
+// 给定一个只包括 '('，')'，'{'，'}'，'['，']'的字符串，判断字符串是否有效。
 
 // 有效字符串需满足：
 
@@ -14,40 +14,40 @@
  * @param {string} s
  * @return {boolean}
  */
-var isValid = function(s) {
+let isValid = function(s) {
     let arr = []
     let len = s.length
-    if (len % 2) return false;
-    for(let i = 0; i < len; i++) {
+    if (len % 2) return false
+    for (let i = 0; i < len; i++) {
         let letter = s[i]
         switch (letter) {
-          case "(": {
-            arr.push(letter);
-            break;
+          case '(': {
+            arr.push(letter)
+            break
           }
-          case "{": {
-            arr.push(letter);
-            break;
+          case '{': {
+            arr.push(letter)
+            break
           }
-          case "[": {
-            arr.push(letter);
-            break;
+          case '[': {
+            arr.push(letter)
+            break
           }
-          case ")": {
-            if (arr.pop() !== "(") return false;
-            break;
+          case ')': {
+            if (arr.pop() !== '(') return false
+            break
           }
-          case "}": {
-            if (arr.pop() !== "{") return false;
-            break;
+          case '}': {
+            if (arr.pop() !== '{') return false
+            break
           }
-          case "]": {
-            if (arr.pop() !== "[") return false;
-            break;
+          case ']': {
+            if (arr.pop() !== '[') return false
+            break
           }
         }
     }
     return !arr.length
-};
-	
-console.log(isValid("{[([]{})]}"))
+}
+
+console.log(isValid('{[([]{})]}'))
