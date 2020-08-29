@@ -403,9 +403,12 @@
  * @author: PoloHuang
  */
 
-let str = 'Hello45647 123 world!Hello 1423 world! ssfsdf'
-let patt1 = /\d+/
-let result1 = patt1.exec(str)
-console.log(result1)
+// let str = 'Hello45647 123 world!Hello 1423 world! ssfsdf'
+// let patt1 = /\d+/
+// let result1 = patt1.exec(str)
+// console.log(result1)
+
+// eslint-disable-next-line no-undef
+console.log(ToPrimitive([]))
 
 

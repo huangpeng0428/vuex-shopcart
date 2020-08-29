@@ -35,6 +35,7 @@ module.exports = {
   // 参数1 ： 错误等级 
   // 参数2 ： 处理方式
   'rules': {
+    'no-new': 0,
     'prefer-promise-reject-errors': 0,
     'space-unary-ops': 0,
     'no-unused-expressions': 0,
