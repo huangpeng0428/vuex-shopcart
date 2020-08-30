@@ -409,6 +409,17 @@
 // console.log(result1)
 
 // eslint-disable-next-line no-undef
-console.log(ToPrimitive([]))
+// console.log(ToPrimitive([]))
+
+let currying = (fn, ...args) =>
+    fn.length > args.length
+    ? (...ss) => currying(fn, ...args, ...ss)
+    : fn(...args)
+
+    let addSum = (a, b, c) => a + b - c
+    let add = currying(addSum)
+    console.log(add(1)(2)(3))
+    console.log(add(1, 2)(3))
+    console.log(add(1, 2, 3))
 
 
