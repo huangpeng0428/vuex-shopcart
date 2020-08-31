@@ -8,9 +8,12 @@ class Compiler {
 
         this.vm = vm
 
+        console.log(fragment)
+
         // 编译模板 用数据编译
         this.compile(fragment)
 
+        console.log(this.el)
         this.el.appendChild(fragment)
     }
 
@@ -26,7 +29,6 @@ class Compiler {
             if (this.isDirective(name)) {
                 console.log(name.split('-'))
                 let [, directive] = name.split('-')
-                console.log(directive)
                 CompileUtil[directive](node, expr, this.vm)
             }
         })
@@ -43,7 +45,9 @@ class Compiler {
 
     // 核心编译方法
     compile(node) {
-        let childNodes = node.childNodes;
+        let childNodes = node.childNodes
+
+        console.log([...childNodes]);
 
         [...childNodes].forEach(child => {
             if (this.isElementNode(child)) {
@@ -73,7 +77,7 @@ class Compiler {
         return fragment
     }
     isElementNode(node) {
-        return node.nodeType === 1
+        return node.nodeType === 1          // 元素
     }
 }
 
