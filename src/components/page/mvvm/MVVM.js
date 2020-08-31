@@ -35,9 +35,8 @@ class Compiler {
     // 编译文本 找{{}}
   compileText(node) {
     let content = node.textContent
-    if (/\{\{(.+?)\}\}/.test(content)) {
+    if (/\{\{(.+?)\}\}/g.test(content)) {
 
-      // console.log(content) // 找到所有文本
       CompileUtil['text'](node, content, this.vm)
     }
   }
@@ -57,6 +56,7 @@ class Compiler {
             } else {
 
                 // console.log('text', child)
+                this.compileText(child)
             }
         })
     }
@@ -86,9 +86,25 @@ const CompileUtil = {
         }, vm.$data)
     },
 
+    // 根据表达式设置对应的数据
+    setVal(vm, expr, value) {
+        expr.split('.').reduce((data, current, index, arr) => {
+            if (index === arr.length - 1) {
+                 data[current] = value
+                 console.log(data[current])
+                 return data[current]
+            }
+            return data[current]
+        }, vm.$data)
+    },
+
     // 解析v-model指令
     model(node, expr, vm) {
         let fn = this.updater['modelUpdater']
+        node.addEventListener('input', e => {
+            let value = e.target.value
+            this.setVal(vm, expr, value)
+        })
         let value = this.getVal(vm, expr)
         console.log(value)
         fn(node, value)
@@ -96,8 +112,13 @@ const CompileUtil = {
     html() {
 
     },
-    text() {
-
+    text(node, expr, vm) {
+        let fn = this.updater['textUpdater']
+        console.log(expr)
+        let content = expr.replace(/\{\{(.*?)\}\}/g, (...args) => {
+            return this.getVal(vm, args[1])
+        })
+        fn(node, content)
     },
     updater: {
         modelUpdater(node, value) {
