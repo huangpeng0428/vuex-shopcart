@@ -1,4 +1,39 @@
 
+class Dep {
+    constructor() {
+        this.subs = []      // 添加watcher
+    }
+
+    // 订阅
+    addSub(watcher) {
+        this.subs.push(watcher)
+    }
+
+    // 发布
+    notify() {
+        this.subs.forEach(watcher => watcher.update())
+    }
+}
+class Watcher {
+    constructor(vm, expr, cb) {
+        this.vm = vm
+        this.expr = expr
+        this.cb = cb
+
+        this.oldValue = this.get()
+    }
+    get() {
+        let value = CompileUtil.getVal(this.vm, this.expr)
+        return value
+    }
+    update() {
+        let newVal = CompileUtil.getVal(this.vm, this.expr)
+        if (newVal !== this.oldValue) {
+            this.cb(newVal)
+        }
+    }
+}
+
 class Compiler {
     constructor(el, vm) {
         this.el = this.isElementNode(el) ? el : document.querySelector(el)
@@ -105,6 +140,9 @@ const CompileUtil = {
     // 解析v-model指令
     model(node, expr, vm) {
         let fn = this.updater['modelUpdater']
+        new Watcher(vm, expr, (newVal) => {
+            fn(node, newVal)
+        })
         node.addEventListener('input', e => {
             let value = e.target.value
             this.setVal(vm, expr, value)
