@@ -25,6 +25,7 @@ class Watcher {
     }
     get() {
         Dep.target = this
+        console.log(2222)
         let value = CompileUtil.getVal(this.vm, this.expr)
         Dep.target = null
         return value
@@ -43,6 +44,7 @@ class Watcher {
 
 class Observer {
   constructor(data) {
+      console.log(1111)
     this.observe(data)
   }
   observe(data) {
@@ -57,7 +59,9 @@ class Observer {
       let dep = new Dep()
       Object.defineProperty(obj, key, {
           get() {
-              console.log('Dep.target', Dep.target)
+              console.log(3333)
+
+            //   console.log('Dep.target', Dep.target)
               Dep.target && dep.addSub(Dep.target)
               return value
           },
@@ -74,6 +78,7 @@ class Observer {
 
 class Compiler {
     constructor(el, vm) {
+
         this.el = this.isElementNode(el) ? el : document.querySelector(el)
 
         // 把当前节点中的元素放到内存中
@@ -81,12 +86,12 @@ class Compiler {
 
         this.vm = vm
 
-        console.log(fragment)
+        // console.log(fragment)
 
         // 编译模板 用数据编译
         this.compile(fragment)
 
-        console.log(this.el)
+        // console.log(this.el)
         this.el.appendChild(fragment)
     }
 
@@ -100,7 +105,8 @@ class Compiler {
         [...attributes].forEach(attr => {
             let {name, value: expr} = attr
             if (this.isDirective(name)) {
-                console.log(name.split('-'))
+
+                // console.log(name.split('-'))
                 let [, directive] = name.split('-')
                 CompileUtil[directive](node, expr, this.vm)
             }
@@ -118,9 +124,9 @@ class Compiler {
 
     // 核心编译方法
     compile(node) {
-        let childNodes = node.childNodes
+        let childNodes = node.childNodes;
 
-        console.log([...childNodes]);
+        // console.log([...childNodes]);
 
         [...childNodes].forEach(child => {
             if (this.isElementNode(child)) {
@@ -244,5 +250,5 @@ class Vue {
  */
 
 // 1.首先对数据进行observer数据劫持，利用Object.defineProperty给每个属性加上get(),set()
-// 2.之后会进行数据的解析，解析数据时给每条数据加上watcher，并将watcher对象赋值给Dep.target（发布订阅器target属性）数据解析完成渲染时触发get()，将watcher添加订阅
+// 2.之后会进行数据的解析，解析数据时(比如v-model时)给每条数据加上watcher，并将watcher对象赋值给Dep.target（发布订阅器target属性）数据解析渲染时触发get()，将watcher添加订阅
 // 3.当修改数据时，会触发set(), 此时会触发我们在set()中定义的dep.notify方法，循环更新watcher updata方法，形成数据驱动视图，mvvm模式
