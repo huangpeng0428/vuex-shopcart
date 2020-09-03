@@ -1,0 +1,58 @@
+<!--
+ * @Date: 2020-08-24 09:40:25
+ * @LastEditors: PoloHuang
+ * @LastEditTime: 2020-09-03 18:17:06
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body style="width: 100%; height: 300px">
+    <div id="moveBox"></div>
+</body>
+
+</html>
+<style>
+    #moveBox{
+        background-color: #000;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+    }
+</style>
+<script>
+    let dragging = false
+    let position = null
+    let moveBox = document.getElementById('moveBox')
+
+    moveBox.addEventListener('mousedown', function(e) {
+        dragging = true
+        position = [e.clientX, e.clientY]
+    })
+
+    moveBox.addEventListener('mousemove', function(e) {
+        if (!dragging) return
+        const x = e.clientX
+        const y = e.clientY
+
+        const deltaX = x - position[0]
+        const deltaY = y - position[1]
+
+        const left = parseInt(moveBox.style.left || 0)
+        const top = parseInt(moveBox.style.top || 0)
+
+        moveBox.style.left = deltaX + left + 'px'
+        moveBox.style.top = deltaY + top + 'px'
+
+        position = [x, y]
+    })
+
+    moveBox.addEventListener('mouseup', function(e) {
+        dragging = false
+    })
+</script>
