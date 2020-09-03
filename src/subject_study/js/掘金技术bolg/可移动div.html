@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-08-24 09:40:25
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-09-03 18:17:06
+ * @LastEditTime: 2020-09-03 18:27:03
 -->
 
 <!DOCTYPE html>
@@ -32,24 +32,24 @@
 
     moveBox.addEventListener('mousedown', function(e) {
         dragging = true
-        position = [e.clientX, e.clientY]
+        position = [e.clientX, e.clientY]  // 鼠标点击是的坐标
     })
 
     moveBox.addEventListener('mousemove', function(e) {
         if (!dragging) return
-        const x = e.clientX
+        const x = e.clientX     // 鼠标移动的坐标
         const y = e.clientY
 
-        const deltaX = x - position[0]
+        const deltaX = x - position[0]      // 鼠标对于点击时移动了多少
         const deltaY = y - position[1]
 
         const left = parseInt(moveBox.style.left || 0)
         const top = parseInt(moveBox.style.top || 0)
 
-        moveBox.style.left = deltaX + left + 'px'
+        moveBox.style.left = deltaX + left + 'px'   // 本身的坐标 + 移动了的距离
         moveBox.style.top = deltaY + top + 'px'
 
-        position = [x, y]
+        position = [x, y]           // 将此时鼠标的坐标记录
     })
 
     moveBox.addEventListener('mouseup', function(e) {
