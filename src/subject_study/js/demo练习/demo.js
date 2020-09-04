@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-08-27 17:59:58
+ * @LastEditTime: 2020-09-04 17:22:15
  */
 // class EventEmitter {
 //   constructor() {
@@ -559,3 +559,21 @@
 
 // 地址： https://blog.csdn.net/hf872914334/article/details/88899326
 
+/**
+ * @description:
+ * @param {type}
+ * @return {type}
+ * @author: PoloHuang
+ */
+
+ function unique_3(array) {
+    let obj = {}
+    return array.filter(function(item, index, array) {
+        let a = obj.hasOwnProperty(typeof item + item)
+          ? false
+          : (obj[typeof item + item] = true)
+        return a
+    })
+}
+
+console.log(JSON.stringify(unique_3([{ 1: 2 }, { 1: 1 }, 3, 4, 4, 4, 2, 3])))
