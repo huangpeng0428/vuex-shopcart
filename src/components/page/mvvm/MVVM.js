@@ -61,7 +61,7 @@ class Observer {
           get() {
               console.log(3333)
 
-            //   console.log('Dep.target', Dep.target)
+              console.log('Dep.target', Dep.target)
               Dep.target && dep.addSub(Dep.target)
               return value
           },
@@ -210,6 +210,7 @@ const CompileUtil = {
     console.log(expr)
     let content = expr.replace(/\{\{(.*?)\}\}/g, (...args) => {
       new Watcher(vm, args[1], () => {
+        console.log(this.getContentVal(vm, expr))
         fn(node, this.getContentVal(vm, expr))
       })
       return this.getVal(vm, args[1])
@@ -251,4 +252,4 @@ class Vue {
 
 // 1.首先对数据进行observer数据劫持，利用Object.defineProperty给每个属性加上get(),set()
 // 2.之后会进行数据的解析，解析数据时(比如v-model时)给每条数据加上watcher，并将watcher对象赋值给Dep.target（发布订阅器target属性）数据解析渲染时触发get()，将watcher添加订阅
-// 3.当修改数据时，会触发set(), 此时会触发我们在set()中定义的dep.notify方法，循环更新watcher updata方法，update方法获取最新值的时候又触发了get，添加了targe标志，形成数据驱动视图，mvvm模式
+// 3.当修改数据时，会触发set(), 此时会触发我们在set()中定义的dep.notify方法，循环更新watcher updata方法，形成数据驱动视图，mvvm模式
