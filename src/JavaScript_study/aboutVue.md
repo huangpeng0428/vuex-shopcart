@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-03-25 15:12:04
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-08-17 16:19:47
+ * @LastEditTime: 2020-09-07 14:07:32
  -->
 ## vue2.x数据监听 Object.defineProperty、vue3.x数据监听 Proxy
 **Object.defineProperty 不足**
@@ -113,4 +113,17 @@ https://segmentfault.com/a/1190000012861862
 **router和route的区别**
 ```
 https://blog.csdn.net/benben513624/article/details/86657492
+```
+#### virtual Dom
+```
+vue源码中虚拟dom构建经历了template编译成AST语法树->在转换为render函数,执行render函数,最终返回一个vnode
+//https://segmentfault.com/a/1190000017544298
+```
+#### vue中对数组的双向绑定做了特殊处理
+```js
+//创建一个对象指向数组的prototype
+const arrayProto = Array.prototype
+export const arrayMethods = Object.create(arrayProto)
+1.继续监听插入类方法（push、unshift、splice）带入的新数据
+2.数组方法在调用时强行触发通知：dep.notify()
 ```

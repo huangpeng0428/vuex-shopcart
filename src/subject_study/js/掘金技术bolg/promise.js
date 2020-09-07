@@ -1,8 +1,8 @@
 /*
  * @Date: 2020-07-27 19:05:43
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-07-28 17:26:50
- */ 
+ * @LastEditTime: 2020-09-07 14:58:12
+ */
 
 // 初始化状态
 const PENDING = 'pending'
@@ -70,6 +70,7 @@ DemoPromise.prototype.then = function(onFulfilled, onRejected) {
 // 测试结果
 new DemoPromise((res, rej) => {
     res(2)
+
     // setTimeout(() => { res(2) }, 2000)
 }).then((value, err) => {
     console.log(value + 2)
