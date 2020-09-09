@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-08-10 14:57:37
+ * @LastEditTime: 2020-09-09 10:44:51
  */
 // class EventEmitter {
 //   constructor() {
@@ -409,17 +409,35 @@
 // console.log(result1)
 
 // eslint-disable-next-line no-undef
-// console.log(ToPrimitive([]))
 
-let currying = (fn, ...args) =>
-    fn.length > args.length
-    ? (...ss) => currying(fn, ...args, ...ss)
-    : fn(...args)
+let s = '1、test，试试，2、test2，试试2，3、test3，试试3'
+let reg = /(\d、)/g
 
-    let addSum = (a, b, c) => a + b - c
-    let add = currying(addSum)
-    console.log(add(1)(2)(3))
-    console.log(add(1, 2)(3))
-    console.log(add(1, 2, 3))
+let a = s.split(/s+(?=\d、)/)
+console.log(a)
+
+// console.log(s.match(reg))
+let arr = s.match(reg)
+arr.forEach(e => {
+    s.split(e)
+})
+console.log(s.split('、'))
+
+/**
+ * @description: 柯理化
+ * @param {type}
+ * @return {type}
+ * @author: PoloHuang
+ */
+// let currying = (fn, ...args) =>
+//     fn.length > args.length
+//     ? (...ss) => currying(fn, ...args, ...ss)
+//     : fn(...args)
+
+//     let addSum = (a, b, c) => a + b - c
+//     let add = currying(addSum)
+//     console.log(add(1)(2)(3))
+//     console.log(add(1, 2)(3))
+//     console.log(add(1, 2, 3))
 
 
