@@ -162,7 +162,7 @@ emitter.addListener('ages', age => {
 emitter.emit('ages', 18)  // 18
 ```
 **宏任务与微任务**
-```
+```js
 console.log('1');
 
 setTimeout(function() {
@@ -230,6 +230,7 @@ new Promise(function(resolve) {
     console.log('promise2');
 });
 console.log('script end');
+
 
 答案：
 script start
@@ -457,4 +458,10 @@ console.log(quickFunc(nums));
 **前端性能优化不完全手册**
 ```
 https://segmentfault.com/a/1190000018827395
+```
+
+**前端性能优化**
+1. 代码层面
+2. webpack方面
+```
 ```

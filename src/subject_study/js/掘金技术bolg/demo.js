@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-09-09 10:44:51
+ * @LastEditTime: 2020-09-09 14:42:59
  */
 // class EventEmitter {
 //   constructor() {
@@ -411,17 +411,8 @@
 // eslint-disable-next-line no-undef
 
 let s = '1、test，试试，2、test2，试试2，3、test3，试试3'
-let reg = /(\d、)/g
-
 let a = s.split(/s+(?=\d、)/)
 console.log(a)
-
-// console.log(s.match(reg))
-let arr = s.match(reg)
-arr.forEach(e => {
-    s.split(e)
-})
-console.log(s.split('、'))
 
 /**
  * @description: 柯理化
@@ -439,5 +430,44 @@ console.log(s.split('、'))
 //     console.log(add(1)(2)(3))
 //     console.log(add(1, 2)(3))
 //     console.log(add(1, 2, 3))
+
+async function async1() {
+  console.log('async1 start')
+  setTimeout(() => {
+    console.log('timer1 start')
+  }, 500)
+  Promise.resolve().then(res => {
+    console.log('promise1')
+  })
+  await async2()
+
+  setTimeout(() => {
+    console.log('timer1 end')
+  }, 0)
+
+  console.log('async1 end')
+}
+async function async2() {
+  setTimeout(() => {
+    console.log('timer2')
+  }, 1000)
+
+  Promise.resolve().then(res => {
+    console.log('promise2')
+  })
+  console.log('async2')
+}
+async1()
+console.log('start')
+
+// async1 start
+// async2
+// start
+// promise1
+// promise2
+// async1 end
+// timer1 end
+// timer1 start
+// timer2
 
 
