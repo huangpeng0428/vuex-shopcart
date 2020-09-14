@@ -1,5 +1,10 @@
+<!--
+ * @Date: 2019-11-11 20:28:02
+ * @LastEditors: PoloHuang
+ * @LastEditTime: 2020-09-14 16:10:59
+-->
 ## 浏览器中的 Event Loop
-```
+```js
 console.log('script start')
 
 async function async1() {

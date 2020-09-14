@@ -12,6 +12,7 @@ class Dep {
 
     // 发布
     notify() {
+        console.log('test', this.subs)
         this.subs.forEach(watcher => watcher.update())
     }
 }
@@ -25,7 +26,8 @@ class Watcher {
     }
     get() {
         Dep.target = this
-        console.log(2222)
+
+        // console.log(2222)
         let value = CompileUtil.getVal(this.vm, this.expr)
         Dep.target = null
         return value
@@ -44,7 +46,8 @@ class Watcher {
 
 class Observer {
   constructor(data) {
-      console.log(1111)
+
+      // console.log(1111)
     this.observe(data)
   }
   observe(data) {
@@ -59,7 +62,8 @@ class Observer {
       let dep = new Dep()
       Object.defineProperty(obj, key, {
           get() {
-              console.log(3333)
+
+              console.log(3333, dep)
 
               console.log('Dep.target', Dep.target)
               Dep.target && dep.addSub(Dep.target)
@@ -67,7 +71,8 @@ class Observer {
           },
            set: (newVal) => {
             if (newVal !== value) {
-                console.log(4444)
+
+                // console.log(4444)
                 this.observe(newVal)
                 value = newVal
                 dep.notify()
