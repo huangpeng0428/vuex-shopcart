@@ -462,9 +462,14 @@ https://segmentfault.com/a/1190000018827395
 
 **前端性能优化**
 1. 代码层面
+   ```js
+   //代码层面
+   图片懒加载、路由懒加载、静态文件换成cdn地址引入（比如element-ui）dns预解析、节流防抖、尽量用css3的属性会开启浏览器的gui加速
+   ```
 2. webpack方面
-```
-https://segmentfault.com/a/1190000019499007
+```js
+wepack4配置图片压缩、splitChunksPlugin公共代码分割
+// https://segmentfault.com/a/1190000019499007
 ```
 **ajax和axios、fetch的区别**
 ```js

@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-03-25 15:12:04
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-09-07 14:07:32
+ * @LastEditTime: 2020-09-15 11:09:22
  -->
 ## vue2.x数据监听 Object.defineProperty、vue3.x数据监听 Proxy
 **Object.defineProperty 不足**
@@ -127,4 +127,8 @@ const arrayProto = Array.prototype
 export const arrayMethods = Object.create(arrayProto)
 1.继续监听插入类方法（push、unshift、splice）带入的新数据
 2.数组方法在调用时强行触发通知：dep.notify()
+```
+#### weex原理
+```
+https://www.codercto.com/a/90376.html
 ```
