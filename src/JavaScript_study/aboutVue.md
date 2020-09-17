@@ -132,3 +132,13 @@ export const arrayMethods = Object.create(arrayProto)
 ```
 https://www.codercto.com/a/90376.html
 ```
+#### runtime-compiler 和 runtime-only 两种模式的理解
+```js
+区别：
+1、runtime-only 比 runtime-compiler 轻 6kb
+
+2、runtime-only 运行更快
+
+3、runtime-only 其实只能识别render函数，不能识别template，.vue文件中的也是被 vue-template-compiler 翻译成了
+render函数，所以只能在.vue里写 template
+```
