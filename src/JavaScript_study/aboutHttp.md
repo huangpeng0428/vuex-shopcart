@@ -1,3 +1,8 @@
+<!--
+ * @Date: 2020-07-24 16:23:27
+ * @LastEditors: PoloHuang
+ * @LastEditTime: 2020-09-18 10:41:06
+-->
 #### http缓存
 ```
 强缓存： Pragma/Cache-Control/Expires
@@ -23,4 +28,21 @@ header压缩： HTTP/2压缩消息头，减少了传输数据的大小
 #### http get和post 
 ```
 https://www.zhihu.com/question/28586791
+```
+#### websocket和http的区别
+```
+http：
+1. 是一个基于TCP/IP通信协议来传递数据
+2. 无状态的协议 一个 Request 只能有一个 Response 而且这个 Response 也是被动的，不能主动发起
+
+
+websocket:
+1 WebSocket 是一个持久化的协议， WebSocket 是基于 HTTP 协议的，或者说借用了 HTTP 协议来完成一部分握手
+2 数据格式比较轻量，性能开销小，通信高效。
+3 可以发送文本，也可以发送二进制数据。
+4 没有同源限制，客户端可以与任意服务器通信。
+5 双向通信协议。在建立连接后，WebSocket服务器端和客户端都能主动向对方发送或接收数据，就像Socket一样；
+
+//https://blog.csdn.net/c_kite/article/details/80033686
+// https://github.com/nnngu/LearningNotes/blob/master/_posts/2018-07-21-%E7%9C%8B%E5%AE%8C%E8%AE%A9%E4%BD%A0%E5%BD%BB%E5%BA%95%E7%90%86%E8%A7%A3%20WebSocket%20%E5%8E%9F%E7%90%86%EF%BC%8C%E9%99%84%E5%AE%8C%E6%95%B4%E7%9A%84%E5%AE%9E%E6%88%98%E4%BB%A3%E7%A0%81%EF%BC%88%E5%8C%85%E5%90%AB%E5%89%8D%E7%AB%AF%E5%92%8C%E5%90%8E%E7%AB%AF%EF%BC%89.md
 ```

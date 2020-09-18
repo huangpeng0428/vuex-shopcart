@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-03-25 15:12:04
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-09-15 11:09:22
+ * @LastEditTime: 2020-09-18 10:43:35
  -->
 ## vue2.x数据监听 Object.defineProperty、vue3.x数据监听 Proxy
 **Object.defineProperty 不足**
@@ -111,6 +111,10 @@ https://segmentfault.com/a/1190000016368913
 ```
 https://segmentfault.com/a/1190000012861862
 ```
+**keep-alive原理**
+```
+https://www.jianshu.com/p/9523bb439950
+```
 **router和route的区别**
 ```
 https://blog.csdn.net/benben513624/article/details/86657492
@@ -132,7 +136,7 @@ export const arrayMethods = Object.create(arrayProto)
 ```
 https://www.codercto.com/a/90376.html
 ```
-#### runtime-compiler 和 runtime-only 两种模式的理解
+**runtime-compiler 和 runtime-only 两种模式的理解**
 ```js
 区别：
 1、runtime-only 比 runtime-compiler 轻 6kb
