@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- <form action="http://127.0.0.1:3000?content='2222222'" method="get">
+		留言：<input type="text" name="content" value="">
+		
+		<input id="inputId" type="submit" name="" value='提交'>
+		</form> -->
+		
+	</body>
+	
+	<script>
+		function setCookie(key, value, t) {
+		    let oDate = new Date()
+            oDate.setDate(oDate.getDate() + t)
+            document.cookie = key + '=' + value + '; expires=' + oDate.toDateString()
+        }
+		setCookie('test', 'huangpeng')
+
+        // document.getElementById('inputId').onclick = function() {
+		// 	console.log(11)
+		// 	// alert(document.cookie)
+		// 	// window.href = 'www.baidu.com'
+		// }
+		console.log(typeof document.cookie)
+		
+	</script>
+	<script src='http://127.0.0.1:3000/?content=huangpeng2222333'></script>
+</html>
