@@ -1,8 +1,8 @@
-const { LinkedList, BinarySearchTree } = require("dsa.js");
+
 /*
  * @Date: 2020-08-18 10:29:18
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-08-21 11:32:19
+ * @LastEditTime: 2020-09-18 17:14:42
  */
 // var minArray = function(numbers) {
 //     let len = numbers.length;
@@ -78,8 +78,8 @@ const { LinkedList, BinarySearchTree } = require("dsa.js");
 
 /**
  * @description: 二叉树最近的公共祖先
- * @param {type} 
- * @return {type} 
+ * @param {type}
+ * @return {type}
  * @author: PoloHuang
  */
 // var lowestCommonAncestor = function(root, p, q) {
@@ -90,7 +90,7 @@ const { LinkedList, BinarySearchTree } = require("dsa.js");
 //         const rson = dfs(root.right, p, q);
 //         if ((lson && rson) || ((root.val === p.val || root.val === q.val) && (lson || rson))) {
 //             ans = root;
-//         } 
+//         }
 //         return lson || rson || (root.val === p.val || root.val === q.val);
 //     }
 //     dfs(root, p, q);
@@ -108,8 +108,8 @@ const { LinkedList, BinarySearchTree } = require("dsa.js");
 
 /**
  * @description: 岛屿数量
- * @param {type} 
- * @return {type} 
+ * @param {type}
+ * @return {type}
  * @author: PoloHuang
  */
 
@@ -155,40 +155,158 @@ const { LinkedList, BinarySearchTree } = require("dsa.js");
 // ]
 // numIslands(arr);
 
-
 /**
  * @description: ip地址
- * @param {type} 
- * @return {type} 
+ * @param {type}
+ * @return {type}
  * @author: PoloHuang
  */
-const restoreIpAddresses = (s) => { 
-  const res = [];
+// const restoreIpAddresses = (s) => {
+//   const res = [];
 
-  const dfs = (subRes, start) => {                 // 复原从start开始的子串
-    if (subRes.length == 4 && start == s.length) { // 满4段，且用光所有字符
-      res.push(subRes.join('.'));                  // 4段拼成字符串 推入结果数组
-      return;                                      // 返不返回都行，指针已经到头了，严谨的说还是返回吧
+//   const dfs = (subRes, start) => {                 // 复原从start开始的子串
+//     if (subRes.length == 4 && start == s.length) { // 满4段，且用光所有字符
+//       res.push(subRes.join('.'));                  // 4段拼成字符串 推入结果数组
+//       return;                                      // 返不返回都行，指针已经到头了，严谨的说还是返回吧
+//     }
+//     if (subRes.length == 4 && start < s.length) {  // 满4段，但还没用光字符,直接返回
+//       return;
+//     }
+//     for (let len = 1; len <= 3; len++) {           // 三种长度的选择
+//       if (start + len - 1 >= s.length) return;     // 指针超出边界了
+//       if (len != 1 && s[start] == '0') return;     // 不能是0x、0xx
+
+//       const str = s.substring(start, start + len); // 当前选择切出的片段
+//       if (len == 3 && +str > 255) return;          // 不能超过255
+
+//       subRes.push(str);                            // 作出选择
+//       dfs(subRes, start + len);                    // 基于这种选择，向下选择
+//       subRes.pop();                                // 撤销最后的选择，回到之前的状态
+//     }
+//   };
+
+//   dfs([], 0);                                      // 按下搜索的启动按钮
+//   console.log(res)
+//   return res;
+// };
+
+// restoreIpAddresses('25525511135')
+
+/**
+ * @description: 买卖股票最佳时期
+ * @param {type}
+ * @return {type}
+ * @author: PoloHuang
+ */
+// let arr = [7, 6, 4, 3, 1]
+// let maxProfit = function(prices) {
+//   let max = 0,
+//       miniprices = prices[0]
+
+//       for (let i = 0; i < prices.length; i++) {
+//         miniprices = Math.min(prices[i], miniprices)
+//         max = Math.max(prices[i] - miniprices, max)
+//       }
+//       return max
+// }
+
+// console.log(maxProfit(arr))
+
+/**
+ * @description:打家劫舍
+ * @param {type}
+ * @return {type}
+ * @author: PoloHuang
+ */
+let rob = function(nums) {
+    const len = nums.length
+    if (len == 0) { return 0 }
+    const dp = new Array(len + 1)
+
+    console.log(dp)
+
+    dp[0] = 0
+    dp[1] = nums[0]
+    for (let i = 2; i <= len; i++) {
+        dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i - 1])
     }
-    if (subRes.length == 4 && start < s.length) {  // 满4段，但还没用光字符,直接返回
-      return;
+    return dp[len]
+}
+
+rob([1, 2, 3, 1])
+
+/**
+ * @description: 输入: [-2,1,-3,4,-1,2,1,-5,4]
+        输出: 6
+        解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
+ * @param {type}
+ * @return {type}
+ * @author: PoloHuang
+ */
+let maxSubArray = function(nums) {
+  let len = nums.length
+  let ans = nums[0]
+  let sum = 0
+  for (let i = 0; i < len; i++) {
+    if (sum > 0) {
+      sum += nums[i]
+    } else {
+      sum = nums[i]
     }
-    for (let len = 1; len <= 3; len++) {           // 三种长度的选择
-      if (start + len - 1 >= s.length) return;     // 指针超出边界了
-      if (len != 1 && s[start] == '0') return;     // 不能是0x、0xx
+    ans = Math.max(sum, ans)
+  }
+  return ans
+}
+maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])
 
-      const str = s.substring(start, start + len); // 当前选择切出的片段
-      if (len == 3 && +str > 255) return;          // 不能超过255
+/**
+ * @description: 判断子序列
+ * @param {type}
+ * @return {type}
+ * @author: PoloHuang
+ */
 
-      subRes.push(str);                            // 作出选择
-      dfs(subRes, start + len);                    // 基于这种选择，向下选择
-      subRes.pop();                                // 撤销最后的选择，回到之前的状态
+ /**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+let isSubsequence = function(s, t) {
+  let index = 0,
+      len = s.length
+
+    for (let item of t) {
+      if (item === s[index]) {
+        index++
+      }
+      if (index === len) {
+        break
+      }
     }
-  };
+    return len === index
+}
 
-  dfs([], 0);                                      // 按下搜索的启动按钮
-  console.log(res)
-  return res;
-};
+// let isSubsequence = function(s, t) {
+//   let index = 0,
+//     len = s.length
 
-restoreIpAddresses('25525511135')
+//   for (let i = 0; i < t.length; i++) {
+//     if (s[index] === t[i]) {
+//       index++
+//     }
+
+//     if (index === len) {
+//       break
+//     }
+//   }
+
+//   return index === len
+// }
+console.log(isSubsequence('abc', 'ahbgdc'))
+
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+
