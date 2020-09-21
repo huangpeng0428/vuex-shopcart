@@ -455,6 +455,11 @@ const quickFunc = nums => {
 
 console.log(quickFunc(nums));
 ```
+**提高webpack打包速度**
+```
+```
+
+
 **前端性能优化不完全手册**
 ```
 https://segmentfault.com/a/1190000018827395
@@ -464,11 +469,14 @@ https://segmentfault.com/a/1190000018827395
 1. 代码层面
    ```js
    //代码层面
-   图片懒加载、路由懒加载、静态文件换成cdn地址引入（比如element-ui）dns预解析、节流防抖、尽量用css3的属性会开启浏览器的gui加速
+   图片懒加载、静态文件换成cdn地址引入（比如element-ui）dns预解析、节流防抖、尽量用css3的属性会开启浏览器的gui加速
    ```
 2. webpack方面
 ```js
 wepack4配置图片压缩、splitChunksPlugin公共代码分割
+- 减少编译体积 `Tree-shaking`、`Scope Hositing`
+- `hash`缓存 `webpack-md5-plugin`
+- 路由懒加载 `import()`、`require.ensure`
 // https://segmentfault.com/a/1190000019499007
 ```
 **ajax和axios、fetch的区别**
