@@ -486,3 +486,7 @@ ajax 使用XMLHttpRequest对象 多个请求之间如果有先后关系的话，
 axios 是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端，本质上也是对原生XHR的封装，只不过它是Promise的实现版本，符合最新的ES规范，它本身具有以下特征
 fetch 号称是AJAX的替代品，是在ES6出现的，使用了ES6中的promise对象。Fetch是基于promise设计的。Fetch的代码结构比起ajax简单多了，参数有点像jQuery ajax。但是，一定记住fetch不是ajax的进一步封装，而是原生js，没有使用XMLHttpRequest对象
 ```
+**前端性能监控**
+```
+https://juejin.im/post/6844903953319067655
+```

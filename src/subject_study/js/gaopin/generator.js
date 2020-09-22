@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-09-02 14:28:06
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-09-02 15:12:29
+ * @LastEditTime: 2020-09-22 17:17:37
  */
 // function* test() {
 //   // eslint-disable-next-line no-unused-vars
@@ -67,3 +67,5 @@ let b = test()
 console.log(b.next())
 console.log(b.next())
 console.log(b.next())
+
+// https://www.jianshu.com/p/53e6966de190
