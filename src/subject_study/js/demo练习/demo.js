@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-09-04 17:22:15
+ * @LastEditTime: 2020-09-24 17:43:16
  */
 // class EventEmitter {
 //   constructor() {
@@ -566,14 +566,31 @@
  * @author: PoloHuang
  */
 
- function unique_3(array) {
-    let obj = {}
-    return array.filter(function(item, index, array) {
-        let a = obj.hasOwnProperty(typeof item + item)
-          ? false
-          : (obj[typeof item + item] = true)
-        return a
-    })
+//  function unique_3(array) {
+//     let obj = {}
+//     return array.filter(function(item, index, array) {
+//         let a = obj.hasOwnProperty(typeof item + item)
+//           ? false
+//           : (obj[typeof item + item] = true)
+//         return a
+//     })
+// }
+
+// console.log(JSON.stringify(unique_3([{ 1: 2 }, { 1: 1 }, 3, 4, 4, 4, 2, 3])))
+
+/**
+ * @description: 正则
+ * @param {type}
+ * @return {type}
+ * @author: PoloHuang
+ */
+function trim(s) {
+  return s.replace(/(^\s*)|(\s*$)/g, '')
 }
 
-console.log(JSON.stringify(unique_3([{ 1: 2 }, { 1: 1 }, 3, 4, 4, 4, 2, 3])))
+let a = trim(' ss ss ss   ')
+
+// let a = ' ss ss ss '
+console.log(a)
+
+
