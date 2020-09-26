@@ -43,3 +43,20 @@ path.resolve([from...],to)
 process.cwd()是指当前node命令执行的文件夹目录
 __dirname是指被执行js文件所在的文件夹目录
 ```
+
+**为什么选择webpack不选择其他的构建工具**
+1. 社区生态丰富
+2. 配置灵活和插件的扩展性
+3. 官方迭代速度快
+
+**webpack主要的组成部分**
+1. entry 打包的主入口
+2. output 打包的输出
+3. mode 'production'  环境
+4. module loader配置
+5. pligins 插件配置
+**webpack打包原理**
+1. 递归地构建一个依赖关系图(dependency graph)
+2. 使用loader去处理应用程序需要的每个模块
+3. 然后将所有这些模块打包成一个或多个 bundle，
+4. 通过manifest管理bundle文件的运行与加载
