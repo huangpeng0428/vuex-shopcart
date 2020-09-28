@@ -402,7 +402,7 @@ console.log(arr)
 const value = 3
 const res = []
 function fn(data, temp = []) {
-    for(node of data) {
+    for(let node of data) {
         if(node.id === value) {
             res = temp
             break
@@ -474,7 +474,7 @@ https://segmentfault.com/a/1190000018827395
 2. webpack方面
 ```js
 wepack4配置图片压缩、splitChunksPlugin公共代码分割
-- 减少编译体积 `Tree-shaking`、`Scope Hositing`
+- 减少编译体积 `Tree-shaking`、`Scope Hositing`()
 - `hash`缓存 `webpack-md5-plugin`
 - 路由懒加载 `import()`、`require.ensure`
 // https://segmentfault.com/a/1190000019499007

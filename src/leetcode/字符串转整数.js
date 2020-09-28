@@ -1,19 +1,17 @@
 /*
  * @Date: 2020-08-06 16:48:28
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-08-06 18:05:44
- */ 
+ * @LastEditTime: 2020-09-28 11:40:41
+ */
 /**
  * @param {string} str
  * @return {number}
  */
-var myAtoi = function(str) {
+let myAtoi = function(str) {
     str = str.trim()
-    if(Number(str) < 0) {
-        var icon = str.substr(0, 1)
+    if (Number(str) < 0) {
         str = str.substr(1)
     }
-    console.log(icon)
-    console.log(str);
-};
+    console.log(str)
+}
 myAtoi('    -14')

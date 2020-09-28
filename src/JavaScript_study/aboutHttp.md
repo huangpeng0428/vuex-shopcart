@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-07-24 16:23:27
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-09-27 14:21:28
+ * @LastEditTime: 2020-09-28 14:42:24
 -->
 #### http缓存
 ```
@@ -46,3 +46,8 @@ websocket:
 //https://blog.csdn.net/c_kite/article/details/80033686
 // https://github.com/nnngu/LearningNotes/blob/master/_posts/2018-07-21-%E7%9C%8B%E5%AE%8C%E8%AE%A9%E4%BD%A0%E5%BD%BB%E5%BA%95%E7%90%86%E8%A7%A3%20WebSocket%20%E5%8E%9F%E7%90%86%EF%BC%8C%E9%99%84%E5%AE%8C%E6%95%B4%E7%9A%84%E5%AE%9E%E6%88%98%E4%BB%A3%E7%A0%81%EF%BC%88%E5%8C%85%E5%90%AB%E5%89%8D%E7%AB%AF%E5%92%8C%E5%90%8E%E7%AB%AF%EF%BC%89.md
 ```
+
+#### 一个http请求各部分包含了什么
+通用头： request url(请求链接) request method(请求方法 post || get) status code(状态码200 || 500)
+响应头： content-type(接收格式) cache-control(控制缓存  max-age=300 || no-cache) Connection(keep-alive 保持长连接) ETag
+请求头： User-Agent cache-control(控制缓存  max-age=300 || no-cache) Connection(keep-alive 保持长连接)
