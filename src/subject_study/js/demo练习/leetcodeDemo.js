@@ -2,7 +2,7 @@
 /*
  * @Date: 2020-08-18 10:29:18
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-09-18 17:14:42
+ * @LastEditTime: 2020-09-28 09:43:47
  */
 // var minArray = function(numbers) {
 //     let len = numbers.length;
@@ -253,8 +253,10 @@ let maxSubArray = function(nums) {
     } else {
       sum = nums[i]
     }
-    ans = Math.max(sum, ans)
+
+    ans = Math.max(ans, sum)
   }
+
   return ans
 }
 maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])
@@ -309,4 +311,3 @@ console.log(isSubsequence('abc', 'ahbgdc'))
  * @param {string} t
  * @return {boolean}
  */
-
