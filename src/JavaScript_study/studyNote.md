@@ -1,37 +1,6 @@
 ## day_01
-
-**自己实现一个new**
-```
-function Person (name, age) {
-    this.name = name ;
-    this.age = age
-}
-1.
-function myNew (fun, ...arg) {
-    // 创建一个新对象且将其隐式原型指向构造函数原型
-    let obj = {
-        __proto__: fun.prototype 
-    }
-    // 执行构造函数
-    fun.apply(obj, arg)
-    
-    // 返回该对象
-    return obj
-}
-
-2.
-function myNew (fn, ...arg) {
-    const obj = Object.create(fn.prototype) //创建一个新对象且将其隐式原型指向构造函数原型
-	const ret = fn.apply(obj, arg)
-	return ret instanceof Object ? ret : obj
-}
-
-
-let _person = myNew(Person, 'huang', '21')
-console.log(_person)
-```
 **判断数据类型的经典方法**
-```
+```js
 const isType = (target, type) => {
     if(typeof target !== 'object') return false
     
@@ -489,4 +458,14 @@ fetch 号称是AJAX的替代品，是在ES6出现的，使用了ES6中的promise
 **前端性能监控**
 ```
 https://juejin.im/post/6844903953319067655
+```
+**defer async script问题**
+```
+1. 如果script标签设置了该属性，则浏览器会异步的下载该文件并且不会影响到后续DOM的渲染；
+如果有多个设置了defer的script标签存在，则会按照顺序执行所有的script；
+defer脚本会在文档渲染完毕后，DOMContentLoaded事件调用前执行。
+
+2. async的设置，会使得script脚本异步的加载并在允许的情况下执行
+async的执行，并不会按着script在页面中的顺序来执行，而是谁先加载完谁执行。
+https://www.cnblogs.com/jiasm/p/7683930.html
 ```
