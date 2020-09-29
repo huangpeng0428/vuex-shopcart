@@ -1,3 +1,8 @@
+<!--
+ * @Date: 2019-10-15 11:09:21
+ * @LastEditors: PoloHuang
+ * @LastEditTime: 2020-09-29 15:46:09
+-->
 **数组内置方法**
 1. 新增
    * push(略)
@@ -58,8 +63,11 @@ const inventoryObj = inventory.find(e => e.name === 'apples')  //{name: 'apples'
 [1, 2, 3].includes(4);     // false
 ```
 5. 数组去重
-```
+```js
 let a = ['1', '2', '3', '4', '3', '2', '1']
-const s = new Set(a)
+
+1. const s = new Set(a)
 console.log([...s])
+
+2. a = a.filter((item, index, arr) => arr.indexOf(item) === index)
 ```

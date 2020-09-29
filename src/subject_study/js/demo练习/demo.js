@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-09-28 10:54:00
+ * @LastEditTime: 2020-09-29 16:36:38
  */
 // class EventEmitter {
 //   constructor() {
@@ -594,57 +594,81 @@
 // console.log(a)
 
 /**
- * @description:
+ * @description: 递归
  * @param {type}
  * @return {type}
  * @author: PoloHuang
  */
-let dataArr = [
-  {
-    id: 1,
-    name: '办公管理',
-    pid: 0,
-    children: [
-      {
-        id: 2,
-        name: '请假申请',
-        pid: 1,
-        children: [{ id: 4, name: '请假记录', pid: 2 }]
-      },
-      { id: 3, name: '出差申请', pid: 1 }
-    ]
-  },
-  {
-    id: 5,
-    name: '系统设置',
-    pid: 0,
-    children: [
-      {
-        id: 6,
-        name: '权限管理',
-        pid: 5,
-        children: [
-          { id: 7, name: '用户角色', pid: 6 },
-          { id: 8, name: '菜单设置', pid: 6 }
-        ]
-      }
-    ]
-  }
-]
-const value = 3
-let res = []
-function fn(data, temp = []) {
-    for (let node of data) {
-        if (node.id === value) {
-            res = temp
-            break
-        }
-        if (node.children) {
-            fn(node.children, [...temp, ...[node.id]])
-        }
-    }
-    return [...res, ...[value]]
-}
-console.log(fn(dataArr))
+// let dataArr = [
+//   {
+//     id: 1,
+//     name: '办公管理',
+//     pid: 0,
+//     children: [
+//       {
+//         id: 2,
+//         name: '请假申请',
+//         pid: 1,
+//         children: [{ id: 4, name: '请假记录', pid: 2 }]
+//       },
+//       { id: 3, name: '出差申请', pid: 1 }
+//     ]
+//   },
+//   {
+//     id: 5,
+//     name: '系统设置',
+//     pid: 0,
+//     children: [
+//       {
+//         id: 6,
+//         name: '权限管理',
+//         pid: 5,
+//         children: [
+//           { id: 7, name: '用户角色', pid: 6 },
+//           { id: 8, name: '菜单设置', pid: 6 }
+//         ]
+//       }
+//     ]
+//   }
+// ]
+// const value = 3
+// let res = []
+// function fn(data, temp = []) {
+//     for (let node of data) {
+//         if (node.id === value) {
+//             res = temp
+//             break
+//         }
+//         if (node.children) {
+//             fn(node.children, [...temp, ...[node.id]])
+//         }
+//     }
+//     return [...res, ...[value]]
+// }
+// console.log(fn(dataArr))
 
+class Point {
+  constructor() {
+    this.x = 2
+  }
+}
+
+class ColorPoint extends Point {
+
+  constructor() {
+    super()
+    this.x = 2
+    super.x = 3
+    console.log(super.x)
+    console.log(this.x)
+  }
+  get m() {
+    console.log('11111', this)
+    return super.p
+  }
+}
+
+let cp = new ColorPoint()
+
+console.log(cp.m)
 

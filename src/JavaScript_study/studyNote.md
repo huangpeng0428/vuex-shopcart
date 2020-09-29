@@ -460,7 +460,7 @@ fetch 号称是AJAX的替代品，是在ES6出现的，使用了ES6中的promise
 https://juejin.im/post/6844903953319067655
 ```
 **defer async script问题**
-```
+```js
 1. 如果script标签设置了该属性，则浏览器会异步的下载该文件并且不会影响到后续DOM的渲染；
 如果有多个设置了defer的script标签存在，则会按照顺序执行所有的script；
 defer脚本会在文档渲染完毕后，DOMContentLoaded事件调用前执行。
@@ -468,4 +468,10 @@ defer脚本会在文档渲染完毕后，DOMContentLoaded事件调用前执行�
 2. async的设置，会使得script脚本异步的加载并在允许的情况下执行
 async的执行，并不会按着script在页面中的顺序来执行，而是谁先加载完谁执行。
 https://www.cnblogs.com/jiasm/p/7683930.html
+```
+**es6模块和commonjs**
+```js
+1. CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。
+2. CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。
+3. CommonJS 模块的require()是同步加载模块，ES6 模块的import命令是异步加载，有一个独立的模块依赖的解析阶段。
 ```
