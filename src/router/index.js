@@ -27,11 +27,12 @@ export default new Router({
       name: 'home',
       component: home
     },
-    {
-      path: '/home',
-      name: 'home',
-      component: home
-    },
+
+    // {
+    //   path: '/home',
+    //   name: 'home',
+    //   component: home
+    // },
     {
       path: '/product',
       name: 'product',

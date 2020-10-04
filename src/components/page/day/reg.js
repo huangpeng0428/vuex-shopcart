@@ -1,19 +1,19 @@
 /*
 match 返回一个符合规定的数组
 */
-let regex1 = /ab{2,5}c/g;
+let regex1 = /ab{2,5}c/g
 
-let str1 = 'abc abbc abbbc abbbbc abbbbbc abbbbbbc';
+let str1 = 'abc abbc abbbc abbbbc abbbbbc abbbbbbc'
 
-console.log(str1.match(regex1));  // 字符串.match(正则)
+console.log(str1.match(regex1))  // 字符串.match(正则)
 
 /*
 replace 返回一个符合规定的数组
 */
-let str2 = 'aaa';
-let reg2 = /a/;
-str2 = str2.replace(reg2, 'b');
-console.log(str2);      // 输出baa 字符串.replace(正则, '字符串')
+let str2 = 'aaa'
+let reg2 = /a/
+str2 = str2.replace(reg2, 'b')
+console.log(str2)      // 输出baa 字符串.replace(正则, '字符串')
 
 /*
 search 返回匹配成功的位置，如果匹配失败就返回-1
@@ -27,9 +27,9 @@ console.log(str3.search(reg3))
 test 正则去匹配字符串，如果匹配成功就返回true，匹配失败就返回false
 */
 
-let str4 = 'abcdef';
-let reg4 = /b/; // bc一个整体也在字符串中，弹出true，但是写bd，弹出false，因为字符串中没有bd这么一个整体
-console.log(reg4.test(str4));   // 正则.test(字符串)
+let str4 = 'abcdef'
+let reg4 = /b/ // bc一个整体也在字符串中，弹出true，但是写bd，弹出false，因为字符串中没有bd这么一个整体
+console.log(reg4.test(str4))   // 正则.test(字符串)
 
 /*
 test练习 匹配 23:59

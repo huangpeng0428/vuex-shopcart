@@ -16,13 +16,13 @@
 
 <script>
 
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Info',
   data() {
     return {
-    };
+    }
   },
   computed: {
       ...mapGetters('cart', {'totalNum': 'returntotalNum'}),
@@ -31,7 +31,7 @@ export default {
   methods: {
       ...mapActions('cart', {'emptyCart': 'actionsEmptyCartList'})
   }
-};
+}
 </script>
 
 <style scoped>

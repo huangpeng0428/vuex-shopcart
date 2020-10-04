@@ -23,7 +23,7 @@ const state = {
         }
     ],
     cartlist: []
-};
+}
 
 const getters = {
 
@@ -54,25 +54,25 @@ const getters = {
         })
         return totalPrice
     }
-};
+}
 
 const actions = {
     actionscartList(context, {id}) {
-        context.commit('pushcartList', id);
+        context.commit('pushcartList', id)
     },
     actionsEmptyCartList(context) {
-        context.commit('emptycartList');
+        context.commit('emptycartList')
     },
     delProduct(context, {id}) {
-        context.commit('delcartList', id);
+        context.commit('delcartList', id)
     },
     addProduct(context, {id}) {
-        context.commit('addcartList', id);
+        context.commit('addcartList', id)
     },
     reduceProduct(context, { id }) {
-        context.commit('reducecartList', id);
+        context.commit('reducecartList', id)
     }
-};
+}
 const mutations = {
 
     // 添加进购物车
@@ -114,7 +114,7 @@ const mutations = {
             state.cartlist = state.cartlist.filter(e => e.id != id)
         }
     }
-};
+}
 
 export default {
     namespaced: true, // 用于在全局引用此文里的方法时标识这一个的文件名
@@ -122,4 +122,4 @@ export default {
     getters,
     mutations,
     actions
-};
+}

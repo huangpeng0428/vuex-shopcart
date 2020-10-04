@@ -3,7 +3,7 @@
  * @LastEditors: PoloHuang
  * @LastEditTime: 2020-07-03 16:52:31
  */
-import Axios from 'axios';
+import Axios from 'axios'
 
 // import Vue from 'vue';
 import Qs from 'qs'
@@ -14,7 +14,7 @@ const axios = Axios.create({
   headers: {
     'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
   }
-});
+})
 
 // 请求前拦截
 axios.interceptors.request.use(
@@ -26,35 +26,35 @@ axios.interceptors.request.use(
     // console.log(`${util.ObjectToString(util.objKeySort(config.data))}&key=3ux94uu9y5SoihjK1BLxZbTOn5dpTAEc`)
     // console.log(Vue.prototype.$cookies.get('loginId_cookie'));
     // config.data['sign'] = util.MD5(`${util.ObjectToString(util.objKeySort(config.data))}&key=3ux94uu9y5SoihjK1BLxZbTOn5dpTAEc`)
-    config.data = Qs.stringify(config.data);
+    config.data = Qs.stringify(config.data)
 
     }
 
     if (config.method === 'get') {
-      let params = config.params || {};
+      let params = config.params || {}
       if (params.nocache) {
-        params.t = new Date().getTime();
-        config.params = params;
-        delete params.nocache;
+        params.t = new Date().getTime()
+        config.params = params
+        delete params.nocache
       }
     } else if (config.data) {
-      config.mock = config.data.mock;
-      config.data['timestamp'] = new Date().getTime();
-      config.data = Qs.stringify(config.data);
+      config.mock = config.data.mock
+      config.data['timestamp'] = new Date().getTime()
+      config.data = Qs.stringify(config.data)
     }
     if (
       process.env.NODE_ENV === 'development' &&
       typeof config.mock === 'boolean' &&
       config.mock
     ) {
-      config.url = '/mock' + config.url;
+      config.url = '/mock' + config.url
     }
-    return config;
+    return config
   },
   error => {
-    return Promise.reject(error);
+    return Promise.reject(error)
   }
-);
+)
 
 // 请求返回拦截
 axios.interceptors.response.use(
@@ -66,16 +66,16 @@ axios.interceptors.response.use(
       // }
       //   return Promise.resolve(result.data);
 
-      return Promise.resolve(result.data);
+      return Promise.resolve(result.data)
     } else if (/^50[0-9]/.test(result.status)) {
-      return Promise.reject(new Error('返回500错误'));
+      return Promise.reject(new Error('返回500错误'))
     } else if (/^4[0-9][0-9]/.test(result.status)) {
-      return Promise.reject(new Error('返回400错误'));
+      return Promise.reject(new Error('返回400错误'))
     }
   },
   error => {
-    return Promise.reject(error);
+    return Promise.reject(error)
   }
-);
+)
 
-export default axios;
+export default axios

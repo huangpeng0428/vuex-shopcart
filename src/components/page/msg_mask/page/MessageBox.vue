@@ -83,7 +83,7 @@ export default {
       resolve: '',
       reject: '',
       promise: '' // 保存promise对象
-    };
+    }
   },
   methods: {
     showBox() {
@@ -99,28 +99,28 @@ export default {
     confirm() {
       this.isShowMessageBox = false
       if (this.isShowInput) {
-        this.resolve(this.inputValue);
+        this.resolve(this.inputValue)
       } else {
-        this.resolve('confirm');
+        this.resolve('confirm')
       }
-      this.remove();
+      this.remove()
     },
     moveDown() {
       setTimeout(function() {
-        document.body.scrollTop = document.body.scrollHeight;
-      }, 0);
+        document.body.scrollTop = document.body.scrollHeight
+      }, 0)
     },
     remove: function() {
       setTimeout(() => {
-        this.destroy();
-      }, 300);
+        this.destroy()
+      }, 300)
     },
     destroy: function() {
-      this.$destroy();
-      document.body.removeChild(this.$el);
+      this.$destroy()
+      document.body.removeChild(this.$el)
     }
   }
-};
+}
 </script>
 
 <style lang='scss' scoped>

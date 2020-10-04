@@ -6,25 +6,25 @@
   </div>
 </template>
 <script>
-  let vm = {};
+  let vm = {}
 
   // 过滤器学习
   export default {
     filters: {
       filtersTextChange: function(dataStr) {
-        let arrayList = vm.arrayList;
-        let value = '没有这个城市 ';
+        let arrayList = vm.arrayList
+        let value = '没有这个城市 '
         for (let b of arrayList) {
           if (b.code == dataStr) {
-            value = b.value;
-            break;
+            value = b.value
+            break
           }
         }
-        return value;
+        return value
       }
     },
     data() {
-      vm = this;
+      vm = this
       return {
         filtersTitle: 'vue过滤器学习，filters',
         arrayList: [

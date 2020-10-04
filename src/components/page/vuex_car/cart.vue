@@ -51,7 +51,7 @@ export default {
   name: 'Cart',
   data() {
     return {
-    };
+    }
   },
   computed: {
       ...mapGetters('cart', {'cartProducts': 'returnCartlist'})
@@ -71,5 +71,5 @@ export default {
       ...mapActions('cart', ['addProduct']),
       ...mapActions('cart', ['reduceProduct'])
   }
-};
+}
 </script>
