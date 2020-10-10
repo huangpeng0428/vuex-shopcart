@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-14 15:25:13
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-09-29 16:36:38
+ * @LastEditTime: 2020-10-09 10:33:00
  */
 // class EventEmitter {
 //   constructor() {
@@ -647,28 +647,62 @@
 // }
 // console.log(fn(dataArr))
 
-class Point {
-  constructor() {
-    this.x = 2
-  }
-}
+/**
+ * @description: class super的用法
+ * @param {type}
+ * @return {type}
+ * @author: PoloHuang
+ */
 
-class ColorPoint extends Point {
+// class Point {
+//   constructor() {
+//     this.x = 2
+//   }
+// }
 
-  constructor() {
-    super()
-    this.x = 2
-    super.x = 3
-    console.log(super.x)
-    console.log(this.x)
-  }
-  get m() {
-    console.log('11111', this)
-    return super.p
-  }
-}
+// class ColorPoint extends Point {
 
-let cp = new ColorPoint()
+//   constructor() {
+//     super()
+//     this.x = 2
+//     super.x = 3
+//     console.log(super.x)
+//     console.log(this.x)
+//   }
+//   get m() {
+//     console.log('11111', this)
+//     return super.p
+//   }
+// }
 
-console.log(cp.m)
+// let cp = new ColorPoint()
+
+// console.log(cp.m)
+
+/**
+ * @description: async
+ * @param {type}
+ * @return {type}
+ * @author: PoloHuang
+ */
+
+ async function getData() {
+
+//   // eslint-disable-next-line no-return-await
+//   // return await
+//   return Promise.resolve('xxx')
+  console.log('1111', await Promise.resolve('xxx'))
+  // eslint-disable-next-line no-return-await
+  return await Promise.resolve('xxx')
+ }
+
+ async function getData1() {
+
+  // await Promise.resolve('xxx')
+
+   const data = getData()
+   console.log(data)
+ }
+
+ getData1()
 
