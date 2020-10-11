@@ -442,7 +442,7 @@ https://segmentfault.com/a/1190000018827395
    ```
 2. webpack方面
 ```js
-wepack4配置图片压缩、splitChunksPlugin公共代码分割
+webpack4配置图片压缩、splitChunksPlugin公共代码分割
 - 减少编译体积 `Tree-shaking`、`Scope Hositing`()
 - `hash`缓存 `webpack-md5-plugin`
 - 路由懒加载 `import()`、`require.ensure`
@@ -471,7 +471,10 @@ https://www.cnblogs.com/jiasm/p/7683930.html
 ```
 **es6模块和commonjs**
 ```js
-1. CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。
+1. CommonJS 模块输出的是一个值的拷贝(模块中的值改变不会影响外部引用的值)，ES6 模块输出的是值的引用(模块中的值会影响外部引用的值)。
 2. CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。
 3. CommonJS 模块的require()是同步加载模块，ES6 模块的import命令是异步加载，有一个独立的模块依赖的解析阶段。
+4. es6模块属于【动态只读引用】（只读： 不能修改引入变量的值）
+
+https://www.cnblogs.com/unclekeith/p/7679503.html
 ```

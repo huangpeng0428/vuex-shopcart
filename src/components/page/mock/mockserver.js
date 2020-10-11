@@ -4,11 +4,12 @@ mockserver 用于模拟后台数据
 const Koa = require('koa')
 
 // const router = require('koa-router')()
-let cors = require('koa2-cors');
+// let cors = require('koa2-cors')
 let mockMap = require('./mock')
 const app = new Koa()
 const Mock = require('mockjs')
-app.use(cors())
+
+// app.use(cors())
 
 app.use(ctx => {
 

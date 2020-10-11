@@ -17,8 +17,8 @@ const flatten1 = function(arr) {
     }, []) : [arr]
 }
 
-// const a = flatten1(arr)
-// console.log(a)
+const a = flatten1(arr)
+console.log(a)
 
 /**
  * @description: 迭代
@@ -35,3 +35,12 @@ const flatten1 = function(arr) {
  }
  const b = flatten2(arr)
  console.log(b)
+
+ /**
+ * @description: api
+ * @param {type}
+ * @return {type}
+ * @author: PoloHuang
+ */
+const c = arr.flat(Infinity)
+console.log(c)

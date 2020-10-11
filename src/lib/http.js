@@ -9,7 +9,9 @@ import Axios from 'axios'
 import Qs from 'qs'
 
 const axios = Axios.create({
+
   baseURL: 'http://127.0.0.1:8088', // 设置请求域名
+  // baseURL: 'http://127.0.0.1:3000', // 模拟跨域
   timeout: 200000,
   headers: {
     'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'

@@ -686,23 +686,28 @@
  * @author: PoloHuang
  */
 
- async function getData() {
+//  async function getData() {
 
+// //   // eslint-disable-next-line no-return-await
+// //   // return await
+// //   return Promise.resolve('xxx')
+//   console.log('1111', await Promise.resolve('xxx'))
 //   // eslint-disable-next-line no-return-await
-//   // return await
-//   return Promise.resolve('xxx')
-  console.log('1111', await Promise.resolve('xxx'))
-  // eslint-disable-next-line no-return-await
-  return await Promise.resolve('xxx')
- }
+//   return await Promise.resolve('xxx')
+//  }
 
- async function getData1() {
+//  async function getData1() {
 
-  // await Promise.resolve('xxx')
+//   // await Promise.resolve('xxx')
 
-   const data = getData()
-   console.log(data)
- }
+//    const data = getData()
+//    console.log(data)
+//  }
 
- getData1()
+//  getData1()
 
+// eslint-disable-next-line no-new-wrappers
+const a = new String('1')
+// eslint-disable-next-line no-proto
+console.log(a.__proto__)
+console.log(a instanceof String)

@@ -22,6 +22,8 @@ export default {
     },
     methods: {
       getInfo() {
+
+        /// campaign/doMission 开发环境webpack跨域处理
         this.$http.get('/console/mdsp/dynamic/list', {mock: true}).then(e => {
           console.log(e)
         })

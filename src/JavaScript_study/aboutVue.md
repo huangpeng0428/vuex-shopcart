@@ -119,6 +119,10 @@ https://www.jianshu.com/p/9523bb439950
 ```
 https://blog.csdn.net/benben513624/article/details/86657492
 ```
+**vue模版转AST语法树（包括render）**
+```
+https://segmentfault.com/a/1190000017374492
+```
 #### virtual Dom
 ```
 vue源码中虚拟dom构建经历了template编译成AST语法树->在转换为render函数,执行render函数,最终返回一个vnode

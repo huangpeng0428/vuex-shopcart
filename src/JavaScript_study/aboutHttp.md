@@ -51,3 +51,6 @@ websocket:
 通用头： request url(请求链接) request method(请求方法 post || get) status code(状态码200 || 500)
 响应头： content-type(接收格式) cache-control(控制缓存  max-age=300 || no-cache) Connection(keep-alive 保持长连接) ETag
 请求头： User-Agent cache-control(控制缓存  max-age=300 || no-cache) Connection(keep-alive 保持长连接)
+
+#### 前端跨域处理
+https://segmentfault.com/a/1190000016199721
