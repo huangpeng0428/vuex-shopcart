@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-03-25 15:12:04
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-09-18 10:43:35
+ * @LastEditTime: 2020-10-12 16:33:52
  -->
 ## vue2.x数据监听 Object.defineProperty、vue3.x数据监听 Proxy
 **Object.defineProperty 不足**
@@ -149,4 +149,14 @@ https://www.codercto.com/a/90376.html
 
 3、runtime-only 其实只能识别render函数，不能识别template，.vue文件中的也是被 vue-template-compiler 翻译成了
 render函数，所以只能在.vue里写 template
+```
+**为什么使用v-for时必须添加唯一的key?**
+```
+key是给每一个vnode的唯一id,可以依靠key,更准确, 更快的拿到oldVnode中对应的vnode节点
+
+vue中列表循环需加:key="唯一标识" 唯一标识可以是item里面id index等，因为vue组件高度复用增加Key可以标识组件的唯一性，
+为了更好地区别各个组件 key的作用主要是为了高效的更新虚拟DOM
+
+https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/1
+https://www.jianshu.com/p/4bd5e745ce95
 ```
