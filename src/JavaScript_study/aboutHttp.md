@@ -1,13 +1,15 @@
 <!--
  * @Date: 2020-07-24 16:23:27
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-09-28 14:42:24
+ * @LastEditTime: 2020-10-12 19:25:42
 -->
 #### http缓存
 ```
 强缓存： Pragma/Cache-Control/Expires
 协商缓存： ETag/If-Not-Match 、Last-Modified/If-Modified-Since （304）
 https://blog.csdn.net/u012375924/article/details/82806617?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.add_param_isCf&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.add_param_isCf
+
+https://www.cnblogs.com/ranyonsue/p/8918908.html
 ```
 #### HTTP/1.0和HTTP/1.1有什么区别
 ```
