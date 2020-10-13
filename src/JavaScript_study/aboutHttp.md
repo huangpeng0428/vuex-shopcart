@@ -7,6 +7,11 @@
 ```
 强缓存： Pragma/Cache-Control/Expires
 协商缓存： ETag/If-Not-Match 、Last-Modified/If-Modified-Since （304）
+
+1. 浏览器先根据这个资源的http头信息来判断是否命中强缓存。如果命中则直接加在缓存中的资源，并不会将请求发送到服务器。
+2. 如果未命中强缓存，则浏览器会将资源加载请求发送到服务器。服务器来判断浏览器本地缓存是否失效。若可以使用，则服务器并不会返回资源信息，浏览器继续从缓存加载资源。
+3. 如果未命中协商缓存，则服务器会将完整的资源返回给浏览器，浏览器加载新资源，并更新缓存。
+
 https://blog.csdn.net/u012375924/article/details/82806617?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.add_param_isCf&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.add_param_isCf
 
 https://www.cnblogs.com/ranyonsue/p/8918908.html
