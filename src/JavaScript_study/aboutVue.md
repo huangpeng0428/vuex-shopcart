@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-03-25 15:12:04
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-10-12 16:33:52
+ * @LastEditTime: 2020-10-14 10:07:20
  -->
 ## vue2.x数据监听 Object.defineProperty、vue3.x数据监听 Proxy
 **Object.defineProperty 不足**
@@ -125,7 +125,14 @@ https://segmentfault.com/a/1190000017374492
 ```
 #### virtual Dom
 ```
-vue源码中虚拟dom构建经历了template编译成AST语法树->在转换为render函数,执行render函数,最终返回一个vnode
+vue源码中虚拟dom构建经历了template编译成AST语法树->在转换为render函数,执行render函数,最终返回一个
+
+为什么vue要使用VDOM
+1. 创建真实dom的代价高： 真实的dom节点node实现的属性很多，而 vnode 仅仅实现一些必要的属性，相比起来，创建一个 vnode 的成本比较低
+2. 真实的dom节点触发多次浏览器重绘及回流
+3. 为了解耦 HTML依赖， 这带来两个非常重要的好处是： 1.不再依赖 HTML 解析器进行模版解析，可以进行更多的 AOT 工作提高运行时效率：通过模版 AOT 编译，Vue 的运行时体积可以进一步压缩，运行时效率可以进一步提升； 2. 可以渲染到 DOM 以外的平台
+
+// 高级Vue
 //https://segmentfault.com/a/1190000017544298
 ```
 #### vue中对数组的双向绑定做了特殊处理

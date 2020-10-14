@@ -1,3 +1,8 @@
+<!--
+ * @Date: 2020-03-24 17:59:41
+ * @LastEditors: PoloHuang
+ * @LastEditTime: 2020-10-14 15:00:30
+-->
 **Node的path.resolve(__dirname，'./src')**
 ```
 使用方法：
@@ -60,3 +65,7 @@ __dirname是指被执行js文件所在的文件夹目录
 2. 使用loader去处理应用程序需要的每个模块
 3. 然后将所有这些模块打包成一个或多个 bundle，
 4. 通过manifest管理bundle文件的运行与加载
+**减少 Webpack 打包时间**
+1. 优化loader(优化 Loader 的文件搜索范围 babel编译过的文件缓存起来)
+2. HappyPack(将同步执行转换为并行的)
+3. DllPlugin()(可以将特定的类库提前打包然后引入)

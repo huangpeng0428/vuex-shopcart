@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-07-24 16:23:27
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-10-12 19:25:42
+ * @LastEditTime: 2020-10-14 16:26:55
 -->
 #### http缓存
 ```
@@ -31,6 +31,8 @@ https://www.cnblogs.com/ranyonsue/p/8918908.html
 新的二进制格式： HTTP/2采用二进制格式传输数据，相比于HTTP/1.1的文本格式，二进制格式具有更好的解析性和拓展性
 header压缩： HTTP/2压缩消息头，减少了传输数据的大小
 
+https://www.cnblogs.com/heluan/p/8620312.html(包含了http1.1/http2.0的差异和http2.0新特性)
+
 ```
 #### http get和post 
 ```
@@ -55,9 +57,12 @@ websocket:
 ```
 
 #### 一个http请求各部分包含了什么
-通用头： request url(请求链接) request method(请求方法 post || get) status code(状态码200 || 500)
+通用头： request url(请求链接) request method(请求方法 post || get) status code(状态码200 || 500) Remote Address(远程地址)
 响应头： content-type(接收格式) cache-control(控制缓存  max-age=300 || no-cache) Connection(keep-alive 保持长连接) ETag
-请求头： User-Agent cache-control(控制缓存  max-age=300 || no-cache) Connection(keep-alive 保持长连接)
+请求头： User-Agent cache-control(控制缓存  max-age=300 || no-cache) Connection(keep-alive 保持长连接) cookie
 
 #### 前端跨域处理
 https://segmentfault.com/a/1190000016199721
+
+#### jsonp的使用与原理
+https://blog.csdn.net/u012207345/article/details/81744862
