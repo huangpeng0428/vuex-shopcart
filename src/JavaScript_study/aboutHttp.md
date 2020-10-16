@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-07-24 16:23:27
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-10-14 16:26:55
+ * @LastEditTime: 2020-10-15 09:38:14
 -->
 #### http缓存
 ```
@@ -35,6 +35,11 @@ https://www.cnblogs.com/heluan/p/8620312.html(包含了http1.1/http2.0的差异�
 
 ```
 #### http get和post 
+- `Get`请求能缓存，`Post` 不能
+- `Post` 相对 `Get`安全一点点，因为`Get` 请求都包含在 `URL` 里，且会被浏览器保存历史纪录，`Post` 不会，但是在抓包的情况下都是一样的。
+- `Post` 可以通过 `request body`来传输比 `Get` 更多的数据，`Get`没有这个技术
+- `URL`有长度限制，会影响 `Get`请求，但是这个长度限制是浏览器规定的，不是 `RFC` 规定的
+- `Post` 支持更多的编码类型且不对数据类型限制
 ```
 https://www.zhihu.com/question/28586791
 ```

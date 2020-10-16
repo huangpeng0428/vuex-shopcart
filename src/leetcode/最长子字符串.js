@@ -28,4 +28,4 @@ let longestPalindrome = function(s) {
 	return s.substring(start, start + maxLength)
 }
 
-console.log(longestPalindrome('aabbccaa'))
+console.log(longestPalindrome('aabbbccaa'))
