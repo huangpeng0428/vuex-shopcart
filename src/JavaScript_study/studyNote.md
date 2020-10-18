@@ -87,6 +87,7 @@ function SubType (name) {
 }
 
 SubType.prototype = new Person()    //原型链继承
+SubType.prototype.constructor = SubType;        //修改constructor指向，避免获取父类上的构造函数属性
 var _sub = new SubType('polo')
 console.log(_sub.name)      //继承父类构造函数属性
 console.log(_sub.age)       //继承父类原型的属性
