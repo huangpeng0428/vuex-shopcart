@@ -103,7 +103,8 @@ https://blog.csdn.net/lfcss/article/details/88786332
 ```
 **vue computed原理**
 ```
-computed 是在beforeCreated 和 created 之间执行的
+1. computed 是在beforeCreated 和 created 之间执行的
+2. lazy 表明这是一个computed watcher
 https://blog.csdn.net/u013970232/article/details/90317829
 https://segmentfault.com/a/1190000016368913
 ```
