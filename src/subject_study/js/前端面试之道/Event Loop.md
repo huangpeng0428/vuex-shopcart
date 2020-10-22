@@ -1,7 +1,7 @@
 <!--
  * @Date: 2019-11-11 20:28:02
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-09-14 16:10:59
+ * @LastEditTime: 2020-10-19 16:54:13
 -->
 ## 浏览器中的 Event Loop
 ```js
@@ -43,3 +43,7 @@ console.log('script end')
 
 然后当同步代码全部执行完毕以后，就会去执行所有的异步代码，那么又会回到 await 的位置执行返回的 Promise 的 resolve 函数，这又会把 resolve 丢到微任务队列中，接下来去执行 then 中的回调，当两个 then 中的回调全部执行完毕以后，又会回到 await 的位置处理返回值，这时候你可以看成是 Promise.resolve(返回值).then()，然后 await 后的代码全部被包裹进了 then 的回调中，所以 console.log('async1 end') 会优先执行于 setTimeout。
 ```
+
+## 浏览器的事件循环和node的事件循环
+1. 浏览器端的事件循环，宏任务的微任务执行完之后才会执行下一个宏任务
+2. node端事件循环，node11之前一个宏任务执行完，会去检查有没有下一个宏任务，如果有这个宏任务会优先于微任务执行，node11之后和浏览器端事件循环一致

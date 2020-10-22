@@ -1,3 +1,8 @@
+<!--
+ * @Date: 2019-05-22 12:25:09
+ * @LastEditors: PoloHuang
+ * @LastEditTime: 2020-10-22 10:31:45
+-->
 <template>
   <div id="app">
     <router-view/>
@@ -12,11 +17,19 @@ export default {
 </script>
 
 <style>
+html{
+  height: 100%;
+}
+body{
+  height: 100%;
+  margin:0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height:100%;
 }
 </style>

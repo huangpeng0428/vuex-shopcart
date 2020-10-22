@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-31 17:10:25
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-07-31 17:12:51
+ * @LastEditTime: 2020-10-22 10:46:55
  */
 function Scheduler() {
   this.list = []
@@ -22,7 +22,8 @@ function Scheduler() {
     if (!this.list || !this.list.length || tempRunIndex >= this.maxCount) {
       return
     }
-    console.log(this.list, this.list.length, tempRunIndex, this.maxCount)
+
+    // console.log(this.list, this.list.length, tempRunIndex, this.maxCount)
     tempRunIndex++
     this.list
       .shift()()
@@ -42,7 +43,9 @@ function timeout(time) {
 let scheduler = new Scheduler()
 
 function addTask(time, order) {
-  scheduler.add(() => timeout(time).then(() => console.log(order)))
+  scheduler.add(() => timeout(time).then(() => {
+    console.log(order)
+  }))
 }
 
 addTask(1000, 1)

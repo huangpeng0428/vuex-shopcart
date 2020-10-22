@@ -1,3 +1,8 @@
+<!--
+ * @Date: 2019-12-27 10:56:11
+ * @LastEditors: PoloHuang
+ * @LastEditTime: 2020-10-22 10:12:55
+-->
 <template>
   <div>
     <button @click="add">增加</button>
@@ -66,7 +71,7 @@
         },
         methods: {
             add() {
-                let arr = new Array(5000).fill(0)
+                let arr = new Array(600).fill(0)
                 arr = arr.map((e, i) => {
                     return i
                 })
