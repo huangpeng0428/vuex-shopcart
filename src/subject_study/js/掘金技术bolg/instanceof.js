@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-07-21 17:04:10
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-07-22 14:05:25
+ * @LastEditTime: 2020-10-28 14:55:02
  */
 
 function instance(left, right) {
@@ -21,6 +21,9 @@ function instance(left, right) {
 }
 console.log(instance({}, Object)) // true
 console.log(instance([], Number)) // false
+
+// instanceof来检测某个对象是不是另一个对象的实例。
+// instanceof运算符用来测试一个对象在其原型链中是否存在一个构造函数prototype属性
 
 // function instance (L, R) {
 //     let r = R.prototype
