@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-05-22 12:25:09
  * @LastEditors: PoloHuang
- * @LastEditTime: 2020-10-22 10:22:34
+ * @LastEditTime: 2020-11-02 16:29:20
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -11,6 +11,7 @@ import filters from '@/components/page/filter_demo/filters'             // vue �
 import MsgContent from '@/components/page/msg_mask/page/MsgContent'     // vue弹窗插件
 import longList from '@/components/page/long_list/list'         // 长列表优化
 import longIndex from '@/components/page/long_list/index'         // 长列表优化
+import demoPage from '@/components/page/demo/index'         // demo
 // import sliderList from '@/components/page/sliderList/index'     // 轮播
 // import mockPage from '@/components/page/mock/mockFrontend'      // mock模拟数据
 // import vueDirective from '@/components/page/vue_directive'      // mock模拟数据
@@ -79,6 +80,11 @@ export default new Router({
       path: '/vueDirective',
       name: 'vueDirective',
       component: vueDirective
+    },
+    {
+      path: '/demoPage',
+      name: 'demoPage',
+      component: demoPage
     }
   ]
 })
