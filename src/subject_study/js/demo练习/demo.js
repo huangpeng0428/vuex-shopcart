@@ -20,6 +20,8 @@
 //     }
 //   }
 
+// const { delete, delete } = require("vue/types/umd")
+
 // const { stringify } = require("qs");
 
 //   //一次性事件监听
@@ -711,3 +713,107 @@ const a = new String('1')
 // eslint-disable-next-line no-proto
 console.log(a.__proto__)
 console.log(a instanceof String)
+
+// eslint-disable-next-line no-extend-native
+// Function.prototype.myBind = function(ctx, ...args) {
+//     if (typeof this !== 'function') throw new TypeError('not an function')
+
+//     const _this = this
+//     ctx = ctx || window
+
+//     return function F() {
+//         if (this instanceof F) {
+//             return new _this(...args, ...arguments)
+//         }
+//         return _this.apply(ctx, [...args, ...arguments])
+//     }
+// }
+
+const arr = [1, [[2], [3, [4]], 5]]
+
+const flatten1 = function(arr) {
+    return Array.isArray(arr) ? arr.reduce((prev, item) => {
+        return [...prev, ...flatten1(item)]
+    }, []) : [arr]
+}
+
+const ab = flatten1(arr)
+console.log(ab)
+
+const flatten2 = function(arr) {
+    while (arr.some(item => Array.isArray(item))) {
+        arr = [].concat(...arr)
+    }
+    return arr
+}
+
+const ac = flatten2(arr)
+console.log('aa', ac)
+
+// eslint-disable-next-line no-extend-native
+Function.prototype.myBind = function(ctx, ...args) {
+    if (typeof this !== 'function') throw new TypeError('not function')
+
+    ctx = ctx || window
+
+    ctx.fn = this
+    const result = ctx.fn(...args)
+    delete ctx.fn
+    return result
+}
+
+// eslint-disable-next-line no-extend-native
+Function.prototype.myApply = function(ctx, args) {
+    if (typeof this !== 'function') throw new TypeError('not an function')
+    ctx = ctx || window
+    ctx.fn = this
+    const result = args ? ctx.fn(...args) : ctx.fn()
+    delete ctx.fn
+    return result
+}
+
+// eslint-disable-next-line no-extend-native
+Function.prototype.myBind = function(ctx, ...args) {
+    if (typeof this !== 'function') throw new TypeError('not an function')
+    const _this = this
+    ctx = ctx || window
+    return function F() {
+        if (this instanceof F) {
+            return new _this(...args, ...arguments)
+        }
+            return _this.apply(ctx, [...args, ...arguments])
+
+    }
+
+}
+
+const deepCopy = function(obj) {
+    // eslint-disable-next-line valid-typeof
+    if (typeof obj === null || typeof obj !== 'object') {
+        return obj
+    }
+    let copy = Array.isArray(obj) ? [] : {}
+    Object.keys(obj).forEach(key => {
+        copy[key] = deepCopy(obj[key])
+    })
+}
+deepCopy()
+
+class EventEmit {
+    constructor() {
+        this._event = Object.create(null)
+    }
+    on(eventName, fn, isOnce = false) {
+        if (typeof gn !== 'function') {
+            throw new TypeError('The listener must be a function!')
+        }
+
+        if (!this._event[eventName]) {
+            this._event[eventName] = []
+        }
+        this._event[eventName].push({fn, isOnce})
+    }
+    once(eventName, fn) {
+        this.on(eventName, fn, true)
+    }
+}
